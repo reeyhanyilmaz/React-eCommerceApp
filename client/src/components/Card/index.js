@@ -1,23 +1,25 @@
-import { Box, Button , Image} from '@chakra-ui/react'
+import { Box, Button , Image} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import moment from "moment"; //moment ile tarih saat islemleri yapılır.
 
 function Card({item}) {
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3" >
+    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3">
 
-        <Link to="#/">
-            <Image src={item.photos} alt="products" loading="lazy"/> 
+        <Link to={`/product/${item.id}`}>
+            <Image src={item.image} alt="products" loading="lazy" width="100%"/> 
             {/* loading lazy ile sayfa ilk yüklendiginde fotograf yokmus gibi göstermesini engellemek icin. */}
 
-            <Box p="6">
-                <Box d="plex" alignItems="baseline" >
-                {moment(item.createdAt).format("DD/MM/YYYY")}
-                </Box>
-
+            <Box >
+                <Box display="flex" justifyContent="space-between">
                 <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight">
                     {item.title}
                 </Box> 
+
+                <Box d="plex" alignItems="baseline" >
+                {moment(item.createdAt).format("DD/MM/YYYY")}
+                </Box>
+                </Box>
 
                 <Box>
                     {item.price}$

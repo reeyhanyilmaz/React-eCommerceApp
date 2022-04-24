@@ -7,8 +7,16 @@ import App from './App';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from "react-router-dom";
 import {QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
-const queryClient = new QueryClient();
+//sayfalar arası gezinirken prodocts'ı tekrar tekrar fecth etmesin diye yazdık.
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false ,
+    }
+  }
+});
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -20,6 +28,8 @@ root.render(
     <ChakraProvider>
       <App />
     </ChakraProvider>
+
+    <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
   </BrowserRouter>

@@ -1,7 +1,7 @@
 import { Routes, Route, Link} from "react-router-dom";
 import './App.css';
 import Navbar from "./components/Navbar";
-import Products from "./pages/Auth/Products";
+import Products from "./pages/Products";
 import Signin from "./pages/Auth/Signin";
 import Signup from "./pages/Auth/Signup";
 

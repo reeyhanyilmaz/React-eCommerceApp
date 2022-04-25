@@ -11,7 +11,7 @@ const Create = async (req, res, next) => {
 	}
 
 	try {
-		input.photos = JSON.parse(input.photos);
+		input.image = JSON.parse(input.image);
 
 		const product = new Product(input);
 		const savedData = await product.save();

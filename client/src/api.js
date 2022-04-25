@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchProductList = async({ pageParam = 1 }) => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products?page=${pageParam}`); //pageParam yani sayfa numarası
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products?page=${pageParam}&limit=12`); //pageParam yani sayfa numarası
 
     return data;
 }

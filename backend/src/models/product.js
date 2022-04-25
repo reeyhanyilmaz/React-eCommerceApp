@@ -14,7 +14,7 @@ const ProductSchema = new Schema({
     type: Number,
     required: true,
   },
-  photos: [String],
+  image: [String],
   createdAt: {
     type: Date,
     default: Date.now,

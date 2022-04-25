@@ -36,10 +36,10 @@ const Register = async (req, res, next) => {
 		delete userData.__v;
 
 		const accessToken = await signAccessToken({
-			user_id: user._id,
+			user_id: user.id,
 			role: user.role,
 		});
-		const refreshToken = await signRefreshToken(user._id);
+		const refreshToken = await signRefreshToken(user.id);
 
 		res.json({
 			user: userData,
@@ -73,10 +73,10 @@ const Login = async (req, res, next) => {
 		}
 
 		const accessToken = await signAccessToken({
-			user_id: user._id,
+			user_id: user.id,
 			role: user.role,
 		});
-		const refreshToken = await signRefreshToken(user._id);
+		const refreshToken = await signRefreshToken(user.id);
 
 		const userData = user.toObject();
 		delete userData.password;

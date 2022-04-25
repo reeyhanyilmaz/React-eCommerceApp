@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const fetchProductList = async() => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products`);
+export const fetchProductList = async({ pageParam = 1 }) => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products?page=${pageParam}`); //pageParam yani sayfa numarası
 
     return data;
 }

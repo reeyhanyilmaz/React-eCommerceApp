@@ -2,7 +2,7 @@ import React from 'react';
 import {Flex , Box , Heading , FormControl , FormLabel , Button, Input , Alert} from '@chakra-ui/react';
 import {useFormik} from 'formik';
 import validationSchema from './validations';
-import {fetchRegister} from '../../../api'; 
+import {getAllUsers, fetchRegister , controllerUserMail } from '../../../api';
 
 function Signup() {
 
@@ -16,15 +16,24 @@ function Signup() {
     validationSchema,
 
     onSubmit: async (values , bag) => {
-     try {
-       const registerResponse = await fetchRegister({email: values.email, password: values.password});
-       console.log(registerResponse);
-     } catch (error){
-       bag.setErrors({general: error.response.data.message})
-     }
-      console.log("sign up values :" , values);
-    },
-  });
+     
+      const checkUserExist = await controllerUserMail(values.email);
+
+      if(checkUserExist !== undefined){
+        return bag.setErrors({email: 'Bu e-mail adresi ile kayıt olunmuştur.'});
+      } else {
+        const registerResponse = await fetchRegister({
+              role: "user",
+              email: values.email,
+              password: values.password,
+            });
+            console.log("registerResponse :", registerResponse);
+      }
+  }
+
+
+});
+
 
   return (
     <div>
@@ -36,9 +45,9 @@ function Signup() {
 
           <Box my={5}>
             {
-              formik.errors.general && (
+              formik.errors.email && (
                 <Alert status='error'>
-                  {formik.errors.general}
+                  {formik.errors.email}
                 </Alert>
               )
             }

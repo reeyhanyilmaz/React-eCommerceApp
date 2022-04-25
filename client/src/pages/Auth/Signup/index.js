@@ -4,7 +4,10 @@ import {useFormik} from 'formik';
 import validationSchema from './validations';
 import {getAllUsers, fetchRegister , controllerUserMail } from '../../../api';
 
+import {useAuth} from "../../../contexts/AuthContext";
+
 function Signup() {
+  const {login } = useAuth();
 
   const formik = useFormik({  
     initialValues: {
@@ -25,9 +28,10 @@ function Signup() {
         const registerResponse = await fetchRegister({
               role: "user",
               email: values.email,
-              password: values.password,
+              password: values.password,              
             });
             console.log("registerResponse :", registerResponse);
+            login(registerResponse);
       }
   }
 

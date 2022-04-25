@@ -9,6 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 import {QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
+//contexts
+import {AuthProvider } from "./contexts/AuthContext"
+
 //sayfalar arası gezinirken prodocts'ı tekrar tekrar fecth etmesin diye yazdık.
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +29,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
     <ChakraProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ChakraProvider>
 
     <ReactQueryDevtools initialIsOpen={false} />

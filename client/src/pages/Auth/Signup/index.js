@@ -1,7 +1,7 @@
 import React from 'react';
 import {Flex , Box , Heading , FormControl , FormLabel , Button, Input , Alert} from '@chakra-ui/react';
 import {useFormik} from 'formik';
-import validationSchema from './validations';
+import validation from './validations';
 import {getAllUsers, fetchRegister , controllerUserMail } from '../../../api';
 
 import {useAuth} from "../../../contexts/AuthContext";
@@ -15,8 +15,7 @@ function Signup() {
       password: '',
       passwordConfirm: '',
     },
-
-    validationSchema,
+   
 
     onSubmit: async (values , bag) => {
      
@@ -33,8 +32,9 @@ function Signup() {
             console.log("registerResponse :", registerResponse);
             login(registerResponse);
       }
-  }
+  },
 
+  validationSchema: validation,
 
 });
 
@@ -49,9 +49,10 @@ function Signup() {
 
           <Box my={5}>
             {
-              formik.errors.email && (
+              formik.errors.email && formik.errors.password && 
+              formik.errors.passwordConfirm && (
                 <Alert status='error'>
-                  {formik.errors.email}
+                  {formik.errors.email || formik.errors.password || formik.errors.passwordConfirm}
                 </Alert>
               )
             }

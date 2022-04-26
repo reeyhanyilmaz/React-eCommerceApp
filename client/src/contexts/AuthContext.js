@@ -1,6 +1,7 @@
 import {useState , useEffect , useContext , createContext} from "react";
-import { fetchMe } from "../api";
+import { fetchLogout, fetchMe } from "../api";
 import {Flex, Spinner} from "@chakra-ui/react";
+
 
 const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         (async () => {
            try{
-               const me = await fetchMe();
+            const me = await fetchMe();
             setLoggedIn(true);
             setUser(me); 
             setLoading(false); 
@@ -27,14 +28,27 @@ const AuthProvider = ({children}) => {
     const login = (data) => {
         setLoggedIn(true);
         setUser(data.user);
-        localStorage.setItem("access-token" , data.accessToken);
-        localStorage.setItem("refresh-token" , data.refreshToken);
+        localStorage.setItem("loginData" , JSON.stringify(data));
+        // localStorage.setItem("access-token" , data.accessToken);
+        // localStorage.setItem("refresh-token" , data.refreshToken);
+        
+    };
+
+    const logout = async (callback) => {
+        setLoggedIn(false);
+        setUser(null);
+        // localStorage.removeItem("access-token");
+        // localStorage.removeItem("refresh-token");
+        localStorage.removeItem("loginData");
+        await fetchLogout();        
+        callback();
     };
 
     const values = {
         loggedIn,
         user,
         login,
+        logout,
     };
 
     //signup yaptıgımız sayfada refresh yapınca yukarıda signin/sigup görünmesin loading görünsün sayfamızda diye yazdık.

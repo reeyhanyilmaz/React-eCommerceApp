@@ -17,10 +17,8 @@ function ProductDetail() {
   if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
-  console.log("data details :", data);
 
   const findBasketItems = basketItems.find((item) => item.id === data[0].id);
-
   const images = data[0].image.map((url) => ({ original: url }));
 
   return (

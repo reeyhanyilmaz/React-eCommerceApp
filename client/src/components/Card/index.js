@@ -1,8 +1,11 @@
 import { Box, Button , Image} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import moment from "moment"; //moment ile tarih saat islemleri yapılır.
+import {useBasket} from "../../contexts/BasketContext";
 
-function Card({item}) {
+function Card({item , data}) {
+    const {addToBasket , basketItems} = useBasket();
+    const findBasketItems = basketItems.find((basket_item) => basket_item.id === item.id);
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3">
 
@@ -27,8 +30,10 @@ function Card({item}) {
             </Box>
         </Link>
 
-        <Button colorScheme="pink">
-            Sepete Ekle
+        <Button colorScheme={ findBasketItems ? "pink" : "green"} variant="solid" onClick={() => addToBasket(item, findBasketItems)}>
+            {
+                findBasketItems ? "Sepetten kaldır" : "Sepete Ekle"
+            }
         </Button>
         
     </Box>

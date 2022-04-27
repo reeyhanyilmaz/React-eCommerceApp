@@ -28,10 +28,9 @@ function Products() {
   if (status === "loading") return "Loading...";
 
   if (status === "error") return "An error has occurred: " + error.message;
-  console.log("data products :", data);
+
   return (
     <div>
-      {/* {data.map((item , key ) => ( <Card key={key} item={item} />))} */}
 
       {/* Gap arasındaki boslukları belirler, repeat ekranda kaç tane card görünmesini istiyorsak. */}
       <Grid templateColumns="repeat(4, 1fr)" gap={6}>

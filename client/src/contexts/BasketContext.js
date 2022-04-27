@@ -2,9 +2,12 @@ import { useState, useEffect, createContext, useContext } from "react";
 
 const BasketContext = createContext();
 
+//localS. tanım varsa onu al yoksa bos array tanımla.
+const defaultBasket = JSON.parse(localStorage.getItem("basket")) || [];
+
 const BasketProvider = ({ children }) => {
   //sepetteki ürünlerimiz.
-  const [basketItems, setBasketItems] = useState([]);
+  const [basketItems, setBasketItems] = useState(defaultBasket);
   // const [total, setTotal] = useState(0);
   // const [count, setCount] = useState(0);
   // const [isLoading, setIsLoading] = useState(false);
@@ -16,6 +19,11 @@ const BasketProvider = ({ children }) => {
   //     setCount(basketItems.length);
   // }, [basketItems]);
 
+  //useEffect ile basketItems değiştiğinde localStorage'a kaydet.
+  useEffect(() => {
+    localStorage.setItem("basket", JSON.stringify(basketItems));
+  }, [basketItems]);
+   
   //sepete ekleyeceğimiz func.
   const addToBasket = (data, findBasketItems) => {
     //sepette yoksa sepete ekleyecek.
@@ -30,10 +38,11 @@ const BasketProvider = ({ children }) => {
     setBasketItems(filtered);
   };
 
-  // const removeFromBasket = (id) => {
-  //     const newBasket = basketItems.filter((item) => item.id !== id);
-  //     setBasketItems(newBasket);
-  // };
+  //verilen item_id haricindekiler sepette olacak.
+  const removeFromBasket = (item_id) => {
+      const newBasket = basketItems.filter((item) => item.id !== item_id);
+      setBasketItems(newBasket);
+  };
 
   // const clearBasket = () => {
   //     setBasketItems([]);
@@ -57,7 +66,7 @@ const BasketProvider = ({ children }) => {
     // isLoading,
     // isError,
     addToBasket,
-    // removeFromBasket,
+    removeFromBasket,
     // clearBasket,
     // updateBasket,
   };

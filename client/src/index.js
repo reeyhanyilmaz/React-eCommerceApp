@@ -1,42 +1,45 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import './reset.css';
-import App from './App';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import "./reset.css";
+import App from "./App";
 // import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import {QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 //contexts
-import {AuthProvider } from "./contexts/AuthContext"
+import { AuthProvider } from "./contexts/AuthContext";
+import { BasketProvider } from "./contexts/BasketContext";
 
 //sayfalar arası gezinirken prodocts'ı tekrar tekrar fecth etmesin diye yazdık.
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnMount: false ,
-    }
-  }
+      refetchOnMount: false,
+    },
+  },
 });
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-    <ChakraProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </ChakraProvider>
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider>
+          <AuthProvider>
+            <BasketProvider>
+              <App />
+            </BasketProvider>
+          </AuthProvider>
+        </ChakraProvider>
 
-    <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  </React.StrictMode>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </React.StrictMode>
   </BrowserRouter>
 );
 

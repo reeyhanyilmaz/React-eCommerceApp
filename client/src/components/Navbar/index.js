@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import { Button } from "@chakra-ui/react";
 import { useAuth } from "../../contexts/AuthContext";
+import { useBasket } from "../../contexts/BasketContext";
 
 function Navbar() {
   const { loggedIn } = useAuth();
-  // console.log(loggedIn);
+  const { basketItems } = useBasket();
 
   return (
     <nav className={styles.nav}>
@@ -39,6 +40,14 @@ function Navbar() {
         {/* kullanıcı girisi varsa profile gidecek */}
         {loggedIn && (
           <>
+            {/* giris yapılmıssa sepetteki ürünleri göstermek icin */}
+            {basketItems.length > 0 && (
+              <Link to="/basket">
+                <Button colorScheme="pink" variant="outline">
+                  Sepete Ekle {basketItems.length}
+                </Button>
+              </Link>
+            )}
             <Link to="/profile">
               <Button>Profile</Button>
             </Link>

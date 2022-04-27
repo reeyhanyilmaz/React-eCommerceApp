@@ -1,22 +1,24 @@
 import axios from "axios";
 
-axios.interceptors.request.use(
-    function (config) {
-    // Do something before request is sent
-    const {origin} = new URL(config.url);
-    const allowedOrigins = [process.env.REACT_APP_BASE_ENDPOINT];
-    const token = localStorage.getItem("access-token");
 
-    if ( allowedOrigins.includes(origin)){
-        config.headers.authorizsation = token;
-    }
-    return config;
-  }, 
+//authorization'a header eklemek icin.
+// axios.interceptors.request.use(
+//     function (config) {
+//     // Do something before request is sent
+//     const {origin} = new URL(config.url);
+//     const allowedOrigins = [process.env.REACT_APP_BASE_ENDPOINT];
+//     const token = localStorage.getItem("access-token");
 
-  function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-  });
+//     if ( allowedOrigins.includes(origin)){
+//         config.headers.authorizsation = token;
+//     }
+//     return config;
+//   }, 
+
+//   function (error) {
+//     // Do something with request error
+//     return Promise.reject(error);
+//   });
 
 
 export const fetchProductList = async({ pageParam = 1 }) => {
@@ -58,5 +60,12 @@ export const fetchMe = async () => {
     const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`);
     
     return data;
-}
+};
 
+export const fetchLogout = async () => {
+    const {data} = await axios.post(`${process.env.REACT_APP_BASE_ENDPOINT}/users` , 
+    {refresh_token: localStorage.getItem("refresh-token"), }
+    );
+    
+    return data;
+};

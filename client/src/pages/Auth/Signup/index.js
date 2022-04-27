@@ -3,11 +3,13 @@ import {Flex , Box , Heading , FormControl , FormLabel , Button, Input , Alert} 
 import {useFormik} from 'formik';
 import validation from './validations';
 import {getAllUsers, fetchRegister , controllerUserMail } from '../../../api';
+import { useNavigate } from 'react-router-dom';
 
 import {useAuth} from "../../../contexts/AuthContext";
 
 function Signup() {
   const {login } = useAuth();
+  const navigate = useNavigate();
 
   const formik = useFormik({  
     initialValues: {
@@ -31,6 +33,7 @@ function Signup() {
             });
             console.log("registerResponse :", registerResponse);
             login(registerResponse);
+            navigate("/profile");
       }
   },
 

@@ -44,9 +44,9 @@ const BasketProvider = ({ children }) => {
       setBasketItems(newBasket);
   };
 
-  // const clearBasket = () => {
-  //     setBasketItems([]);
-  // };
+  const emptyBasket = () => {
+      setBasketItems([]);
+  };
 
   // const updateBasket = (id, quantity) => {
   //     const newBasket = basketItems.map((item) => {
@@ -67,7 +67,7 @@ const BasketProvider = ({ children }) => {
     // isError,
     addToBasket,
     removeFromBasket,
-    // clearBasket,
+    emptyBasket,
     // updateBasket,
   };
 

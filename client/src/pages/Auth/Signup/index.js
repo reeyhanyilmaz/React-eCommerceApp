@@ -31,7 +31,7 @@ function Signup() {
               email: values.email,
               password: values.password,              
             });
-            console.log("registerResponse :", registerResponse);
+
             login(registerResponse);
             navigate("/profile");
       }

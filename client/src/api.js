@@ -33,13 +33,6 @@ export const fetchProduct = async(id) => {
     return data;
 }
 
-//user'ların cekilmesi
-export const getAllUsers = async() => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`);
-    
-    return data;
-}
-
 //user eklenmesi, yani yeni kullanıcının eklenmesi.
 export const fetchRegister = async(input) => {
     const {data} = await axios.post(`${process.env.REACT_APP_BASE_ENDPOINT}/users`, input);
@@ -47,14 +40,35 @@ export const fetchRegister = async(input) => {
     return data;
 }
 
-export const controllerUserMail = async (mail , password , passwordConfirm) => {
+export const fetchLogin = async(input) => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`, input);
+
+    return data;
+}
+
+//user'ların cekilmesi
+export const getAllUsers = async() => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`);
+    
+    return data;
+}
+
+export const controllerUserMail = async (mail) => {
     // üye olan tüm kullanıcıları çektik
     const allUser = await getAllUsers();
     
     // bu kullanıcıların içinde email'i form'daki email olan var mı?
-    return allUser.find(user => user.email === mail && user.password === password && user.passwordConfirm === passwordConfirm);
+    return allUser.find(user => user.email === mail );
     
 } ;
+
+export const controllerUserPassword = async (password) => {
+    const allUser = await getAllUsers();
+
+    // password kontrol
+    return allUser.find(user => user.password === password );
+}
+
 
 export const fetchMe = async () => {
     const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`);
@@ -64,7 +78,7 @@ export const fetchMe = async () => {
 
 export const fetchLogout = async () => {
     const {data} = await axios.post(`${process.env.REACT_APP_BASE_ENDPOINT}/users` , 
-    {refresh_token: localStorage.getItem("refresh-token"), }
+    // {refresh_token: localStorage.getItem("refresh-token"), }
     );
     
     return data;

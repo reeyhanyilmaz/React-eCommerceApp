@@ -21,9 +21,9 @@ function Signup() {
 
     onSubmit: async (values , bag) => {
      
-      const checkUserExist = await controllerUserMail(values.email);
+      const checkUserMail = await controllerUserMail(values.email);
 
-      if(checkUserExist !== undefined){
+      if(checkUserMail !== undefined){
         return bag.setErrors({email: 'Bu e-mail adresi ile kayıt olunmuştur.'});
       } else {
         const registerResponse = await fetchRegister({
@@ -36,7 +36,6 @@ function Signup() {
             navigate("/profile");
       }
   },
-
   validationSchema: validation,
 
 });
@@ -52,10 +51,9 @@ function Signup() {
 
           <Box my={5}>
             {
-              formik.errors.email && formik.errors.password && 
-              formik.errors.passwordConfirm && (
+              formik.errors.email && formik.touched.email &&   (
                 <Alert status='error'>
-                  {formik.errors.email || formik.errors.password || formik.errors.passwordConfirm}
+                  {formik.errors.email}
                 </Alert>
               )
             }

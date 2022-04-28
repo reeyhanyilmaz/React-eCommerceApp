@@ -17,8 +17,6 @@ function Signin() {
       password: '',
     },
    
-    
-
     onSubmit: async (values , bag) => {
      
       const checkUserMail = await controllerUserMail(values.email);
@@ -30,10 +28,11 @@ function Signin() {
         bag.setErrors({password :"E-mail veya parola hatalı"});
       } else {
         const loginResponse = await fetchLogin({
-              role: "user",
+              
               email: values.email,
               password: values.password,              
             });
+            console.log("login response:", loginResponse);
             login(loginResponse);
             navigate("/profile");             
     }         

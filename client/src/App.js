@@ -7,6 +7,7 @@ import Signup from "./pages/Auth/Signup";
 import Profile from "./pages/Profile";
 import Basket from "./pages/Basket";
 import Error404 from "./pages/Error404";
+import Admin from "./pages/Admin";
 import ProductDetail from "./pages/ProductDetail";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
@@ -22,7 +23,16 @@ function App() {
               <Route path="/signin" element={<Signin /> } />
               <Route path="/signup" element={<Signup />} /> 
               <Route path="/basket" element={<Basket />} /> 
-              <Route path="/profile"  element={ <ProtectedRoute> <Profile /> </ProtectedRoute> } />
+              <Route path="/profile"  element={ 
+              <ProtectedRoute> 
+                <Profile /> 
+                </ProtectedRoute> } />
+
+              <Route path="/admin/*" admin={true} element={ 
+              <ProtectedRoute  > 
+                <Admin /> 
+                </ProtectedRoute> }  />
+                
               <Route path="*" element={<Error404 />} /> 
           </Routes> 
           </div>

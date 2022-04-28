@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useBasket } from "../../contexts/BasketContext";
 
 function Navbar() {
-  const { loggedIn } = useAuth();
+  const { loggedIn , user } = useAuth();
   const { basketItems } = useBasket();
 
   return (
@@ -48,6 +48,18 @@ function Navbar() {
                 </Button>
               </Link>
             )}
+
+              {/* admin islemleri */}
+            {
+              user?.role === "admin" && (
+                 <Link to="/admin">
+                   <Button colorScheme="pink"variant="ghost" >
+                      Admin
+                   </Button>
+                 </Link>
+              )
+            }
+
             <Link to="/profile">
               <Button>Profile</Button>
             </Link>

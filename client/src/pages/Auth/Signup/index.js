@@ -13,6 +13,7 @@ function Signup() {
 
   const formik = useFormik({  
     initialValues: {
+      role:'',
       email: '',
       password: '',
       passwordConfirm: '',
@@ -34,6 +35,7 @@ function Signup() {
 
             login(registerResponse);
             navigate("/profile");
+            console.log("sign up:" , registerResponse);
       }
   },
   validationSchema: validation,

@@ -13,6 +13,7 @@ function Signin() {
 
   const formik = useFormik({  
     initialValues: {
+      role:'',
       email: '',
       password: '',
     },
@@ -28,11 +29,11 @@ function Signin() {
         bag.setErrors({password :"E-mail veya parola hatalı"});
       } else {
         const loginResponse = await fetchLogin({
-              
+              role: values.role,
               email: values.email,
               password: values.password,              
             });
-            console.log("login response:", loginResponse);
+            console.log("signin response:", loginResponse);
             login(loginResponse);
             navigate("/profile");             
     }         

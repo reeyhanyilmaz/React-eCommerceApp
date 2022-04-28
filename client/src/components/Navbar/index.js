@@ -51,9 +51,9 @@ function Navbar() {
 
               {/* admin islemleri */}
             {
-              user?.role === "admin" && (
+             user?.role === "admin" && (
                  <Link to="/admin">
-                   <Button colorScheme="pink"variant="ghost" >
+                   <Button colorScheme="pink" variant="ghost" >
                       Admin
                    </Button>
                  </Link>

@@ -41,8 +41,8 @@ export const fetchRegister = async(input) => {
 }
 
 //kullanıcı giris islemleri.
-export const fetchLogin = async(input) => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`, input);
+export const fetchLogin = async() => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/users`);
     // let newdata = data.filter((item) => item.email === input.email);
     // if (newdata.length !== 1) {
     // newdata = false;
@@ -92,3 +92,9 @@ export const postOrder = async (input) => {
     
     return data;
 };
+
+export const fetchOrder = async () => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/order`);
+    
+    return data;
+}

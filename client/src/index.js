@@ -13,6 +13,9 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { AuthProvider } from "./contexts/AuthContext";
 import { BasketProvider } from "./contexts/BasketContext";
 
+//ant design
+import "antd/dist/antd.css";
+
 //sayfalar arası gezinirken prodocts'ı tekrar tekrar fecth etmesin diye yazdık.
 const queryClient = new QueryClient({
   defaultOptions: {

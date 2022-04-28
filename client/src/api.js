@@ -97,4 +97,12 @@ export const fetchOrder = async () => {
     const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/order`);
     
     return data;
-}
+};
+
+
+//admin/products sayfasından ürün silmek icin
+export const deleteProduct = async (id) => {
+    const { data } = await axios.delete(`${process.env.REACT_APP_BASE_ENDPOINT}/products/:${id}`);
+  
+    return data;
+  };

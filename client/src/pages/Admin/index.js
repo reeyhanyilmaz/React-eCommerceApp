@@ -6,6 +6,7 @@ import Home from './Home';
 import Products from './Products';
 import Orders from './Orders'; 
 import ProductDetail from './ProductDetail';
+import NewProduct from './Products/new';
 
 function Admin() {
 
@@ -33,6 +34,7 @@ function Admin() {
                 <Route  path="/" element={<Home />} />
                 <Route  path="orders" element={<Orders/>} />
                 <Route  path="products" element={<Products/>} />
+                <Route  path="products/new" element={<NewProduct />} />
                 <Route  path="products/:id" element={<ProductDetail/>} />
             </Routes>
 

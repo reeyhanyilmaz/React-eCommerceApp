@@ -140,11 +140,11 @@ function ProductDetail() {
                         <div>
     {/* values altında image diye key varsa bunu map'liyoruz. image array oldugu icin */}
                           {values.image &&
-                            values.image.map((image, index) => (
+                            values.image.map((images, index) => (
                               <div key={index}>
 
          {/* birden fazla fotograf olacagı iicn, input name'i de ona göre degissin diye bu seilde yazdık */}
-                                <Input name={`image.${index}`} value={image}
+                                <Input name={`image.${index}`} value={images}
                                 disabled={isSubmitting} onChange={handleChange} width="3xl"/>
 
                                 <Button ml="4" type="button" colorScheme="red" onClick={() => arrayHelpers.remove(index)}>Sil</Button>

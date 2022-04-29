@@ -102,7 +102,14 @@ export const fetchOrder = async () => {
 
 //admin/products sayfasından ürün silmek icin
 export const deleteProduct = async (id) => {
-    const { data } = await axios.delete(`${process.env.REACT_APP_BASE_ENDPOINT}/products/:${id}`);
+    const {data} = await axios.delete(`${process.env.REACT_APP_BASE_ENDPOINT}/products/${id}`);
+  
+    return data;
+  };
+
+
+  export const updateProduct = async (input, id) => {
+    const {data} = await axios.put(`${process.env.REACT_APP_BASE_ENDPOINT}/products/${id}`, input);
   
     return data;
   };

@@ -4,7 +4,8 @@ import "./style.css";
 import { Box } from '@chakra-ui/react';
 import Home from './Home';
 import Products from './Products';
-import Orders from './Orders';
+import Orders from './Orders'; 
+import ProductDetail from './ProductDetail';
 
 function Admin() {
 
@@ -32,6 +33,7 @@ function Admin() {
                 <Route  path="/" element={<Home />} />
                 <Route  path="orders" element={<Orders/>} />
                 <Route  path="products" element={<Products/>} />
+                <Route  path="products/:id" element={<ProductDetail/>} />
             </Routes>
 
         </Box>

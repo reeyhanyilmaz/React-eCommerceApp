@@ -16,7 +16,7 @@ function Products() {
     //admin:products bu key'in ait oldugu query bastan calısacak , silinen ürün gelmedigi içicn görünmeyecek. Yani biz refresh yapmadan direk sayfadan ürünü kaldırması icin yazdık.
 
     //en dıştaki index.js de queryclient'a erişiyoruz burada. Bu sayede sayfayı refresh etmez.
-    onSuccess: () => queryClient().invalidateQueries("admin:products")
+    onSuccess: () => queryClient().invalidateQueries("admin:products"),
   });
 
 
@@ -42,7 +42,7 @@ function Products() {
       {
         title: "Action",
         key: "action",
-        render: (record, text) => (
+        render: (record) => (
           <>
             <NavLink to={`/admin/products/${record.id}`}>Düzenle</NavLink>
             <Popconfirm
@@ -51,22 +51,20 @@ function Products() {
               //useMutation altında mutate geliyor, record id ise hangi ürünü sileceksen onun id'si geliyor.
               onConfirm={() => {deleteMutation.mutate(record.id, {
                 onSuccess: () => {
-                  console.log("silindi");
-
-                  
-                },
+                  console.log("silindi")                 
+                }
               });
              }}
               onCancel={() => alert("Silme iptal edildi")}
               okText="Evet" calcelText="Hayır" placement="left">
   
-              <a href="/#" style= {{marginLeft: 10}}>Sil</a>
+              <a href="#" style= {{marginLeft: 10}}>Sil</a>
            </Popconfirm>
           </>
         ),
       },
     ];
-  }, [])
+  }, [deleteMutation])
 
   if (isLoading) return <div>Loading...</div>;
 

@@ -11,16 +11,17 @@ import {
 	TableCaption,
 	Text,
 } from "@chakra-ui/react";
+import {useState} from "react";
 
 function Orders() {
   // catch'lenirken ne ile catch olacak (verilen data), o yüzden useQuery'e key veriyoruz.
   const {data, isLoading, isError , error} = useQuery("admin:orders", fetchOrder);
+  
+  console.log("order data:" , data)
 
   if(isLoading) {
     return <div>Loading...</div>
   }
-
-  console.log(data)
 
   if(isError) {
     return <div>Error {error.message}</div>
@@ -45,7 +46,13 @@ function Orders() {
               <Tr key={item.id}>
                 <Td>{item.email}</Td>
                 <Td>{item.address}</Td>
-                <Td isNumeric>{item.basketItems}</Td>
+                <Td isNumeric>{item.basketItems.map((product) => {
+                  return (
+                    <div>
+                      {product.title} - {product.price} $
+                    </div>
+                  )
+                })}</Td>
               </Tr>
             ))}
          </Tbody>

@@ -34,13 +34,13 @@ console.log(user)
   //toplama islemini yapacak func.
   const total = basketItems.reduce((acc, item) => acc + item.price, 0);
 
+  console.log(basketItems);
   const handleSubmitForm = async (e) => {
-    const itemIds = basketItems.map((item) => item.id);
-
+    
     const input = {
       email: user.email,
       address,
-      basketItems: JSON.stringify(itemIds),
+      basketItems,
     };
 
     const response = await postOrder(input);

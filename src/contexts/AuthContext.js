@@ -46,8 +46,7 @@ const AuthProvider = ({children}) => {
         // });
         setUser(data);
 
-        localStorage.setItem("loginData" , JSON.stringify(data));
-        
+        localStorage.setItem("loginData" , JSON.stringify(data));       
     };
 
     const logout = async (callback) => {
@@ -72,9 +71,7 @@ const AuthProvider = ({children}) => {
                 <Spinner thickness="4px" speed="0.65s" emptyColor="gray.200" size="xl" color="red.500" />
             </Flex>
         )
-
     }
-
     return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }
 

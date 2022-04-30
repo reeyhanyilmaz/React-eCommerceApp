@@ -30,6 +30,7 @@ export const fetchRegister = async(input) => {
 export const fetchLogin = async(email) => {
     const allUser = await getAllUsers();
     const user = allUser.find((item) => item.email === email);
+    console.log("api", user)
     return user;
 }
 
@@ -72,6 +73,7 @@ export const fetchLogout = async () => {
 export const postOrder = async (input) => {
     const {data} = await axios.post(`${process.env.REACT_APP_BASE_ENDPOINT}/order` , input);
     
+    console.log(input);
     return data;
 };
 

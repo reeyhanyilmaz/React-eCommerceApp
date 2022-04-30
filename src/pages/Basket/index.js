@@ -20,11 +20,13 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { postOrder } from "../../api";
+import {useAuth} from '../../contexts/AuthContext';
 
 function Basket() {
   const [address, setAddress] = useState("");
   const { basketItems, removeFromBasket , emptyBasket  } = useBasket();
-
+  const {user} = useAuth();
+console.log(user)
   //chakra'dan aldık
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef();
@@ -35,16 +37,14 @@ function Basket() {
   const handleSubmitForm = async (e) => {
     const itemIds = basketItems.map((item) => item.id);
 
-    // const eMail = JSON.parse(localStorage.getItem("loginData")).email;
-
     const input = {
-      // eMail,
+      email: user.email,
       address,
       basketItems: JSON.stringify(itemIds),
     };
 
     const response = await postOrder(input);
-    console.log(response);
+    console.log("order response:" , response);
 
     //emptyBasket çalışacak sepet temizlenecek ve modal kapanacak.
     emptyBasket();

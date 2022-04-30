@@ -19,7 +19,7 @@ const AuthProvider = ({children}) => {
             const me = await fetchMe(); //fethcMe API ile kullanıcı bilgilerini getir dedik. /users
 
             if (loginData !== null) {
-                const newMe = me.filter((item) => item.email === loginData.email);
+                const newMe = me.find((item) => item.email === loginData.email);
                 setLoggedIn(true);
                 setUser(newMe);
             }

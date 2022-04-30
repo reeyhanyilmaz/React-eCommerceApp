@@ -23,8 +23,6 @@ const AuthProvider = ({children}) => {
                 setLoggedIn(true);
                 setUser(newMe);
             }
-
-
             // setUser(me); 
             setLoading(false); 
            } catch (e) {
@@ -34,10 +32,10 @@ const AuthProvider = ({children}) => {
     }, [])
 
 
-    const login = (data , user) => {
+    const login = (data) => {
         setLoggedIn(true); 
 
-        // setUser(() =>{
+        // setUser((user, data) =>{
 
         //     if(user?.role === "admin"){
         //         return data[0];
@@ -46,19 +44,15 @@ const AuthProvider = ({children}) => {
         //         return data;
         //     }
         // });
-        setUser(data[0]);
+        setUser(data);
 
         localStorage.setItem("loginData" , JSON.stringify(data));
-        // localStorage.setItem("access-token" , data.accessToken);
-        // localStorage.setItem("refresh-token" , data.refreshToken);
         
     };
 
     const logout = async (callback) => {
         setLoggedIn(false);
         setUser(null);
-        // localStorage.removeItem("access-token");
-        // localStorage.removeItem("refresh-token");
         localStorage.removeItem("loginData");
         await fetchLogout();        
         callback();

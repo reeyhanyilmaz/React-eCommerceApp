@@ -48,7 +48,7 @@ function Signup() {
       <Flex align="center" width="full" justifyContent="center">
         <Box pt={10}>
           <Box textAlign="center">
-            <Heading>Sign Up</Heading>
+            <Heading>Kayıt Ol</Heading>
           </Box>
 
           <Box my={5}>
@@ -74,7 +74,7 @@ function Signup() {
               </FormControl>
 
               <FormControl mt={4}>
-                <FormLabel >Password</FormLabel>
+                <FormLabel >Şifre</FormLabel>
                 <Input name="password" 
                 type="password" 
                 onChange={formik.handleChange} 
@@ -84,7 +84,7 @@ function Signup() {
               </FormControl>
 
               <FormControl mt={4}>
-                <FormLabel >Password Confirm</FormLabel>
+                <FormLabel >Şifre Onay</FormLabel>
                 <Input name="passwordConfirm" 
                 type="password" 
                 onChange={formik.handleChange} 
@@ -95,7 +95,7 @@ function Signup() {
               </FormControl>
 
               <Button mt={4} width="full" type='submit'>
-                Sign Up
+               Kayıt Ol
               </Button>
             </form>
 

@@ -18,14 +18,16 @@ function ProductDetail() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  const findBasketItems = basketItems.find((item) => item.id === data[0].id);
+  const findBasketItems = basketItems.find((item) => item.id === data.id);
+
   const images = data[0].image.map((url) => ({ original: url }));
 
   return (
     <div>
       {/* butona tıklayınca sepete ekleyecek, data API'dan gelen data. */}
       <Button
-        colorScheme={findBasketItems ? "pink" : "green"}
+        backgroundColor={findBasketItems ? "#cab1bd" : "#b5c9c3"}
+        color="white"
         onClick={() => addToBasket(data, findBasketItems)}
       >
         {findBasketItems ? "Sepetten kaldır" : "Sepete Ekle"}
@@ -35,7 +37,7 @@ function ProductDetail() {
         {data[0].title}
       </Text>
 
-      <Text>{moment(data[0].createdAt).format("DD/MM/YYYY")}</Text>
+      {/* <Text>{moment(data[0].createdAt).format("DD/MM/YYYY")}</Text> */}
 
       <p>{data[0].description}</p>
 

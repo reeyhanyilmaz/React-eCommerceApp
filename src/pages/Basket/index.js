@@ -117,7 +117,7 @@ function Basket() {
                   <Button colorScheme="blue" mr={3} onClick={handleSubmitForm} >
                     Kaydet
                   </Button>
-                  <Button onClick={onClose}>Cancel</Button>
+                  <Button onClick={onClose}>İptal</Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>

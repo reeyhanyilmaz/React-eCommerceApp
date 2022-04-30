@@ -19,18 +19,18 @@ function Card({item , data}) {
                     {item.title}
                 </Box> 
 
-                <Box d="plex" alignItems="baseline" >
+                {/* <Box d="plex" alignItems="baseline" >
                 {moment(item.createdAt).format("DD/MM/YYYY")}
-                </Box>
-                </Box>
-
+                </Box> */}
                 <Box>
                     {item.price}$
                 </Box>
+                </Box>               
             </Box>
         </Link>
 
-        <Button colorScheme={ findBasketItems ? "pink" : "green"} variant="solid" onClick={() => addToBasket(item, findBasketItems)}>
+        <Button backgroundColor={ findBasketItems ? "#c0b9dd" : "#84A59D"}
+        color="white" variant="solid" onClick={() => addToBasket(item, findBasketItems)}>
             {
                 findBasketItems ? "Sepetten kaldır" : "Sepete Ekle"
             }

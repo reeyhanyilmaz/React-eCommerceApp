@@ -18,7 +18,7 @@ function Navbar() {
 
         <ul className={styles.menu}>
           <li>
-            <Link to="/">Products</Link>
+            <Link to="/">Ürünler</Link>
           </li>
         </ul>
       </div>
@@ -28,11 +28,11 @@ function Navbar() {
         {!loggedIn && (
           <>
             <Link to="/signin">
-              <Button colorScheme="pink">Login</Button>
+              <Button colorScheme="pink">Giriş</Button>
             </Link>
 
             <Link to="/signup">
-              <Button colorScheme="pink">Register</Button>
+              <Button colorScheme="pink">Yeni Üye Girişi</Button>
             </Link>
           </>
         )}
@@ -43,8 +43,8 @@ function Navbar() {
             {/* giris yapılmıssa sepetteki ürünleri göstermek icin */}
             {basketItems.length > 0 && (
               <Link to="/basket">
-                <Button colorScheme="pink" variant="outline">
-                  Sepete Ekle {basketItems.length}
+                <Button color="#F28482" outlineColor="#F28482" variant="outline">
+                  Sepetim {basketItems.length}
                 </Button>
               </Link>
             )}
@@ -61,7 +61,7 @@ function Navbar() {
             }
 
             <Link to="/profile">
-              <Button>Profile</Button>
+              <Button>Profil</Button>
             </Link>
           </>
         )}

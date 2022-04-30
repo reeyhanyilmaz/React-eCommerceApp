@@ -2,7 +2,7 @@
  import {Flex , Box , Heading , FormControl , FormLabel , Button, Input , Alert} from '@chakra-ui/react';
 import {useFormik} from 'formik';
 import validation from './validations';
-import {getAllUsers, fetchLogin , controllerUserMail , controllerUserPassword } from '../../../api';
+import {fetchLogin , controllerUserMail , controllerUserPassword } from '../../../api';
 import { useNavigate } from 'react-router-dom';
 
 import {useAuth} from "../../../contexts/AuthContext";
@@ -13,10 +13,12 @@ function Signin() {
 
   const formik = useFormik({  
     initialValues: {
-      role:'',
+      role:'user',
       email: '',
       password: '',
     },
+
+    validationSchema: validation,
    
     onSubmit: async (values , bag) => {
      
@@ -28,17 +30,12 @@ function Signin() {
       } else if(checkUserPassword === undefined){
         bag.setErrors({password :"E-mail veya parola hatalı"});
       } else {
-        const loginResponse = await fetchLogin({
-              role: values.role,
-              email: values.email,
-              password: values.password,              
-            });
+        const loginResponse = await fetchLogin(values.email);                     
             console.log("signin response:", loginResponse);
             login(loginResponse);
-            navigate("/profile");             
-    }         
-  },
-  validationSchema: validation,
+            navigate("/profile");                  
+    }   
+  },  
   });
 
   return (
@@ -46,7 +43,7 @@ function Signin() {
       <Flex align="center" width="full" justifyContent="center">
         <Box pt={10}>
           <Box textAlign="center">
-            <Heading>Sign In</Heading>
+            <Heading>Giriş</Heading>
           </Box>
 
           <Box my={5}>
@@ -84,7 +81,7 @@ function Signin() {
               </FormControl>
 
               <FormControl mt={4}>
-                <FormLabel >Password</FormLabel>
+                <FormLabel >Şifre</FormLabel>
                 <Input name="password" 
                 type="password" 
                 onChange={formik.handleChange} 
@@ -94,7 +91,7 @@ function Signin() {
               </FormControl>
 
               <Button mt={4} width="full" type='submit'>
-                Sign In
+                Giriş Yap
               </Button>
             </form>
 

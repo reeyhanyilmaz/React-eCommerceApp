@@ -6,6 +6,10 @@
     border-bottom: 1px solid #e5e5e5;
     line-height: 2px;
     align-items: center;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% */
 }
 
 .nav .left{

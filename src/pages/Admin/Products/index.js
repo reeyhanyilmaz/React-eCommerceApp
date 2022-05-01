@@ -25,22 +25,22 @@ function Products() {
   const columns = useMemo(() => {
     return  [
       {
-        title: "Title",
+        title: "Ürün",
         dataIndex: "title",
         key: "title",
       },
       {
-        title: "Price",
+        title: "Fiyat",
         dataIndex: "price",
         key: "price",
       },
       {
-        title: "Created At",
+        title: "Eklenme Tarihi",
         dataIndex: "createdAt",
         key: "createdAt",
       },
       {
-        title: "Action",
+        title: "",
         key: "action",
         render: (record) => (
           <>
@@ -76,7 +76,7 @@ function Products() {
     <div>
       <Flex justifyContent="space-between" alignItems="center">
       <Text fontSize="2xl" p="5">
-        Products
+        Ürünler
       </Text>
 
       <NavLink to="/admin/products/new">

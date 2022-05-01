@@ -73,7 +73,7 @@ function NewProduct() {
               <Box my="5" textAlign="left">
                 <form onSubmit={handleSubmit}>
                   <FormControl>
-                    <FormLabel>Title</FormLabel>
+                    <FormLabel>Başlık</FormLabel>
                     <Input
                       name="title"
                       onChange={handleChange}
@@ -88,7 +88,7 @@ function NewProduct() {
                   </FormControl>
 
                   <FormControl mt="4">
-                    <FormLabel>Description</FormLabel>
+                    <FormLabel>Ürün Detayı</FormLabel>
                     <Textarea
                       name="description"
                       onChange={handleChange}
@@ -103,7 +103,7 @@ function NewProduct() {
                   </FormControl>
 
                   <FormControl mt="4">
-                    <FormLabel>Price</FormLabel>
+                    <FormLabel>Fiyat</FormLabel>
                     <Input
                       name="price"
                       onChange={handleChange}
@@ -118,7 +118,7 @@ function NewProduct() {
                   </FormControl>
 
                   <FormControl mt="4">
-                    <FormLabel>image</FormLabel>
+                    <FormLabel>Fotoğraf</FormLabel>
                     <FieldArray
                       name="image"
                       render={(arrayHelpers) => (

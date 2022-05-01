@@ -11,13 +11,10 @@ import {
 	TableCaption,
 	Text,
 } from "@chakra-ui/react";
-import {useState} from "react";
 
 function Orders() {
   // catch'lenirken ne ile catch olacak (verilen data), o yüzden useQuery'e key veriyoruz.
   const {data, isLoading, isError , error} = useQuery("admin:orders", fetchOrder);
-  
-  console.log("order data:" , data)
 
   if(isLoading) {
     return <div>Loading...</div>
@@ -29,7 +26,7 @@ function Orders() {
 
   return (
     <div>
-       <Text fontSize="2xl" p="5">Orders</Text>
+       <Text fontSize="2xl" p="5">Siparişler</Text>
 
        <Table variant="simple">
          <TableCaption></TableCaption>
@@ -56,7 +53,6 @@ function Orders() {
               </Tr>
             ))}
          </Tbody>
-
        </Table>
     </div>
   )

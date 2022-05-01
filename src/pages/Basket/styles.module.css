@@ -1,0 +1,17 @@
+.basketUl li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+}
+
+.siparisOnaylaBox {
+  border: solid 2px #cac9c9;
+  width: 40%;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

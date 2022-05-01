@@ -28,7 +28,7 @@ function Orders() {
     <div>
        <Text fontSize="2xl" p="5">Siparişler</Text>
 
-       <Table variant="simple">
+       <Table variant="simple" fontSize="md">
          <TableCaption></TableCaption>
          <Thead>
            <Tr>

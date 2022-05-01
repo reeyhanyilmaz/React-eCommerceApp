@@ -1,4 +1,5 @@
-import { useRef , useState } from "react";
+import styles from "./styles.module.css";
+import { useRef, useState } from "react";
 import { useBasket } from "../../contexts/BasketContext";
 import {
   Alert,
@@ -16,17 +17,18 @@ import {
   useDisclosure,
   FormControl,
   FormLabel,
-  Textarea, useToast
+  Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { postOrder } from "../../api";
-import {useAuth} from '../../contexts/AuthContext';
+import { useAuth } from "../../contexts/AuthContext";
 
 function Basket() {
   const [address, setAddress] = useState("");
-  const { basketItems, removeFromBasket , emptyBasket  } = useBasket();
-  const {user} = useAuth();
-console.log(user)
+  const { basketItems, removeFromBasket, emptyBasket } = useBasket();
+  const { user } = useAuth();
+  console.log(user);
   //chakra'dan aldık
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef();
@@ -37,7 +39,6 @@ console.log(user)
 
   console.log(basketItems);
   const handleSubmitForm = async (e) => {
-    
     const input = {
       email: user.email,
       address,
@@ -45,7 +46,7 @@ console.log(user)
     };
 
     const response = await postOrder(input);
-    console.log("order response:" , response);
+    console.log("order response:", response);
 
     //emptyBasket çalışacak sepet temizlenecek ve modal kapanacak.
     emptyBasket();
@@ -72,14 +73,13 @@ console.log(user)
           </Alert>
         ) && (
           <>
-            <h1 fontWeight="bold">Sepetim</h1>
-            <ul style={{ listStyleType: "decimal" }}>
+            <Text fontSize="2xl" mb="2">
+              Sepetim
+            </Text>
+            <ul className={styles.basketUl}>
               {basketItems.map((item) => (
                 <li key={item.id} style={{ marginBottom: 15 }}>
                   <Link to={`/product/${item.id}`}>
-                    <Text fontSize="18">
-                      {item.title} - {item.price} $
-                    </Text>
                     <Image
                       hmtlWidth={200}
                       loading="lazy"
@@ -88,25 +88,36 @@ console.log(user)
                     />
                   </Link>
 
+                  <Link to={`/product/${item.id}`}>
+                    <Text fontSize="17">{item.title}</Text>
+                  </Link>
+
+                  <Text fontSize="17">{item.price}.0 $</Text>
+
                   <Button
-                    mt="2"
-                    size="md"
-                    colorScheme="pink"
+                    color="white"
+                    backgroundColor="#c0b9dd"
                     onClick={() => removeFromBasket(item.id)}
                   >
                     Sepetten Kaldır
                   </Button>
                 </li>
               ))}
-              <Box mt="10">
-                <Text fontSize="22">Toplam Tutar: {total} $</Text>
-              </Box>
             </ul>
 
-            <Button mt="2" size="sm" colorScheme="green" onClick={onOpen}>
-              Sipariş ver
-            </Button>
+            <Box mt="10" className={styles.siparisOnaylaBox}>
+              <Text fontSize="xl">Sipariş Özeti: {total}.0 $</Text>
+              <Button
+                mt="2"
+                color="white"
+                backgroundColor="#84A59D"
+                onClick={onOpen}
+              >
+                Sepeti Onayla
+              </Button>
+            </Box>
 
+            {/* Sipariş onayla dedigimizde karsımıza cıkacak olan ekran (Modal) */}
             <Modal
               initialFocusRef={initialRef}
               isOpen={isOpen}
@@ -119,19 +130,26 @@ console.log(user)
                 <ModalBody pb={6}>
                   <FormControl>
                     <FormLabel>Adres Giriniz</FormLabel>
-                    <Textarea ref={initialRef} placeholder="Adres Giriniz" value={address} onChange={(e) => setAddress(e.target.value) }/>
+                    <Textarea
+                      ref={initialRef}
+                      placeholder="Adres Giriniz"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
                   </FormControl>
                 </ModalBody>
 
                 <ModalFooter>
-                
-                  <Button backgroundColor="#c0b9dd" color="white" mr={3} onClick={handleSubmitForm }>
+                  <Button
+                    backgroundColor="#c0b9dd"
+                    color="white"
+                    mr={3}
+                    onClick={handleSubmitForm}
+                  >
                     Kaydet
                   </Button>
                   <Button onClick={onClose}>İptal</Button>
                 </ModalFooter>
-
-               
               </ModalContent>
             </Modal>
           </>

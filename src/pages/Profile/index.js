@@ -18,7 +18,7 @@ function Profile() {
       {/* <Text fontWeight="bold">Profil</Text> */}
       {/* <code>{JSON.stringify(user)}</code> */}
       <TableContainer>
-        <Table size="lg">
+        <Table size="lg" fontSize="md">
           <Thead>
             <Tr>
               <Th>Kullanıcı Bilgisi</Th>

@@ -120,27 +120,29 @@ function Navbar() {
               </Link>
             )}
 
-            {/* admin islemleri */}
-            {user?.role === "admin" && (
-              <Link to="/admin">
-                <Button color="white" backgroundColor="#c0b9dd">
-                  Admin
-                </Button>
-              </Link>
-            )}
-
             <Menu>
-              <MenuButton as={Button} ml="1">
+              <MenuButton as={Button} ml="1" color="#4a5568" p="5">
                 Profil
               </MenuButton>
               <MenuList>
-                <MenuGroup title="Profil">
+                <MenuGroup title="Profil" fontSize="15">
                   <MenuDivider />
                   <Link to="/profile">
-                    <MenuItem>Hesap Bilgilerim</MenuItem>
+                    <MenuItem fontSize="16" mb="1">
+                      <a>Hesap Bilgilerim</a>
+                    </MenuItem>
                   </Link>
 
-                  <MenuItem>
+                  {/* admin islemleri */}
+                  {user?.role === "admin" && (
+                    <Link to="/admin/orders">
+                      <MenuItem fontSize="16" mb="1">
+                        <a>Admin</a>
+                      </MenuItem>
+                    </Link>
+                  )}
+
+                  <MenuItem fontSize="16" mb="1">
                     <a onClick={handleLogout}>Çıkış Yap</a>
                   </MenuItem>
                 </MenuGroup>

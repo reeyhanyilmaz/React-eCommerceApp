@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { fetchProduct , updateProduct } from "../../../api";
+import { fetchProduct, updateProduct } from "../../../api";
 import { useQuery } from "react-query";
 import { Formik, FieldArray } from "formik";
 import {
@@ -9,9 +9,10 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Textarea, Button
+  Textarea,
+  Button,
 } from "@chakra-ui/react";
-import { message} from "antd";
+import { message } from "antd";
 
 import validationSchema from "./validations";
 
@@ -31,24 +32,24 @@ function ProductDetail() {
 
   console.log("admin/productDetail data:", data);
 
-  const handleSubmit = async (values , bag) => {
-      //bag formun icinde yapabilecegimiz func gelir. Formu resetlemek, validasyınları tekrar calıstırmak gibi tanımlar gelir.
+  const handleSubmit = async (values, bag) => {
+    //bag formun icinde yapabilecegimiz func gelir. Formu resetlemek, validasyınları tekrar calıstırmak gibi tanımlar gelir.
     console.log("admin/productDetail submitted:", values);
 
     //key daha sonra güncelleyecegimiz icin verdik. Updating görünüyor islem gerceklestikten sonra baska sekilde göstermemiz icin key vermeliyiz.
-    message.loading({ content: 'Yükleniyor...', key: 'product_update' });
+    message.loading({ content: "Yükleniyor...", key: "product_update" });
 
     try {
-        await updateProduct(values, id);  
-        message.success({
-          content: "Ürün başarılı şekilde güncellendi.",
-          key: "product_update", //güncellenecek olan.
-          duration: 2, //duration 2 saniye sonunda kaybolması icin
-        });
-      } catch (e) {
-        console.log("admin/productDetails ürün update error:" , e);
-        message.error("Ürün güncellenirken bir hata oluştu.");
-      }
+      await updateProduct(values, id);
+      message.success({
+        content: "Ürün başarılı şekilde güncellendi.",
+        key: "product_update", //güncellenecek olan.
+        duration: 2, //duration 2 saniye sonunda kaybolması icin
+      });
+    } catch (e) {
+      console.log("admin/productDetails ürün update error:", e);
+      message.error("Ürün güncellenirken bir hata oluştu.");
+    }
   };
 
   return (
@@ -86,50 +87,47 @@ function ProductDetail() {
                     <FormLabel>Ürün Adı</FormLabel>
                     <Input
                       name="title"
-                      placeholder="Ürün Adı"
                       value={values.title}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       disabled={isSubmitting}
-                      isInvalid ={touched.title && errors.title}
+                      isInvalid={touched.title && errors.title}
                     />
 
                     {/* hepsi varsa <Text></Text> kısmını yazdır  */}
-                    {touched.title && errors.title && ( 
-                        <Text color="red.500">{errors.title}</Text>
-                    )}                   
+                    {touched.title && errors.title && (
+                      <Text color="red.500">{errors.title}</Text>
+                    )}
                   </FormControl>
 
                   <FormControl mt="4">
                     <FormLabel> Ürün Detayı</FormLabel>
                     <Textarea
                       name="description"
-                      placeholder="Ürün Detayı"
                       value={values.description}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       disabled={isSubmitting}
-                      isInvalid ={touched.description && errors.description}
+                      isInvalid={touched.description && errors.description}
                     />
-                    {touched.description && errors.description && ( 
-                        <Text color="red.500">{errors.description}</Text>
-                    )} 
+                    {touched.description && errors.description && (
+                      <Text color="red.500">{errors.description}</Text>
+                    )}
                   </FormControl>
 
                   <FormControl mt="4">
                     <FormLabel>Fiyat</FormLabel>
                     <Input
                       name="price"
-                      placeholder="Fiyat"
                       value={values.price}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       disabled={isSubmitting}
-                      isInvalid ={touched.price && errors.price}
+                      isInvalid={touched.price && errors.price}
                     />
-                     {touched.price && errors.price && ( 
-                        <Text color="red.500">{errors.price}</Text>
-                    )} 
+                    {touched.price && errors.price && (
+                      <Text color="red.500">{errors.price}</Text>
+                    )}
                   </FormControl>
 
                   <FormControl mt="4">
@@ -138,28 +136,53 @@ function ProductDetail() {
                       name="image"
                       render={(arrayHelpers) => (
                         <div>
-    {/* values altında image diye key varsa bunu map'liyoruz. image array oldugu icin */}
+                          {/* values altında image diye key varsa bunu map'liyoruz. image array oldugu icin */}
                           {values.image &&
                             values.image.map((images, index) => (
-                              <div key={index}>
+                              <div
+                                key={index}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                {/* birden fazla fotograf olacagı iicn, input name'i de ona göre degissin diye bu seilde yazdık */}
+                                <Input
+                                  name={`image.${index}`}
+                                  value={images}
+                                  disabled={isSubmitting}
+                                  onChange={handleChange}
+                                  width="3xl"
+                                />
 
-         {/* birden fazla fotograf olacagı iicn, input name'i de ona göre degissin diye bu seilde yazdık */}
-                                <Input name={`image.${index}`} value={images}
-                                disabled={isSubmitting} onChange={handleChange} width="3xl"/>
-
-                                <Button ml="4" type="button" colorScheme="red" onClick={() => arrayHelpers.remove(index)}>Sil</Button>
+                                <Button
+                                  fontSize="md"
+                                  ml="4"
+                                  type="button"
+                                  colorScheme="red"
+                                  onClick={() => arrayHelpers.remove(index)}
+                                >
+                                  Kaldır
+                                </Button>
                               </div>
                             ))}
 
-                            <Button mt="5" onClick={() => arrayHelpers.push("")}>Fotoğraf Ekle</Button>
+                          <Button mt="5" onClick={() => arrayHelpers.push("")}>
+                            Fotoğraf Ekle
+                          </Button>
                         </div>
                       )}
                     />
                   </FormControl>
 
-{/* güncelle tıklayınca loading oluyor ve üstteki inputlar disable olur */}
-                  <Button mt="4" width="full" type="submit" isLoading={isSubmitting}>
-                      Güncelle
+                  {/* güncelle tıklayınca loading oluyor ve üstteki inputlar disable olur */}
+                  <Button
+                    mt="4"
+                    width="full"
+                    type="submit"
+                    isLoading={isSubmitting}
+                  >
+                    Güncelle
                   </Button>
                 </form>
               </Box>

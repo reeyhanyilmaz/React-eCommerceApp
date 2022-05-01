@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box , Flex , Button } from "@chakra-ui/react";
+import { Grid, Box, Flex, Button } from "@chakra-ui/react";
 import Card from "../../components/Card";
 import { useInfiniteQuery } from "react-query";
 //useQuery bize sade API çağrımları saglar. örn: loading, error icin state tanımları yapmamız gerekirdi. useQuery ile hazır alabiliyoruz.
@@ -31,7 +31,6 @@ function Products() {
 
   return (
     <div>
-
       {/* Gap arasındaki boslukları belirler, repeat ekranda kaç tane card görünmesini istiyorsak. */}
       <Grid templateColumns="repeat(4, 1fr)" gap={6}>
         {/* ic ice map yaptık cünkü pageparam icinde pages oldugu icin. Group group yani. */}
@@ -48,21 +47,19 @@ function Products() {
 
       {/* diger sayfaları yükleyebilmemiz icin */}
       <Flex mt="10" justifyContent="center">
-         <Button
-           onClick={() => fetchNextPage()}
-           isLoading={isFetchingNextPage}
-           disabled={!hasNextPage || isFetchingNextPage}
-         >
-           {isFetchingNextPage
-             ? 'Loading more...'
-             : hasNextPage
-             ? 'Load More'
-             : 'Nothing more to load'}
-         </Button>
-       </Flex>
-      
-
-
+        <Button
+          color="#4a5568;"
+          onClick={() => fetchNextPage()}
+          isLoading={isFetchingNextPage}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          {isFetchingNextPage
+            ? "Loading more..."
+            : hasNextPage
+            ? "Daha fazla"
+            : "Daha fazla ürün yüklenemedi"}
+        </Button>
+      </Flex>
     </div> // return kapsayıcı div
   );
 }

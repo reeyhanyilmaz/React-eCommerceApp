@@ -16,7 +16,7 @@ import {
   useDisclosure,
   FormControl,
   FormLabel,
-  Textarea,
+  Textarea, useToast
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { postOrder } from "../../api";
@@ -30,6 +30,7 @@ console.log(user)
   //chakra'dan aldık
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef();
+  const toast = useToast();
 
   //toplama islemini yapacak func.
   const total = basketItems.reduce((acc, item) => acc + item.price, 0);
@@ -48,7 +49,16 @@ console.log(user)
 
     //emptyBasket çalışacak sepet temizlenecek ve modal kapanacak.
     emptyBasket();
-    onClose();
+    onClose(
+      toast({
+        title: `Siparişiniz Alındı!`,
+        description: "En kısa sürede kargoya verilecektir.",
+        status: "success",
+        duration: 6000,
+        isClosable: true,
+        position: "top",
+      })
+    );
   };
   return (
     <Box p="5">
@@ -114,11 +124,14 @@ console.log(user)
                 </ModalBody>
 
                 <ModalFooter>
-                  <Button colorScheme="blue" mr={3} onClick={handleSubmitForm} >
+                
+                  <Button backgroundColor="#c0b9dd" color="white" mr={3} onClick={handleSubmitForm }>
                     Kaydet
                   </Button>
                   <Button onClick={onClose}>İptal</Button>
                 </ModalFooter>
+
+               
               </ModalContent>
             </Modal>
           </>

@@ -6,10 +6,9 @@
     border-bottom: 1px solid #e5e5e5;
     line-height: 2px;
     align-items: center;
-    /* position: fixed;
+    /* position: fixed; 
     top: 0;
-    left: 0;
-    width: 100% */
+    width: 100%; */
 }
 
 .nav .left{
@@ -18,7 +17,7 @@
 
 .nav .left .menu {
     display: flex;
-    margin-left: 40px;
+    align-items: center;
 }
 
 .nav .left .menu li a {
@@ -27,16 +26,19 @@
     font-size: 1.2rem;
     padding: 3px 16px;
     display: block;
-    font-size: 16px;
+    font-size: 18px;
+    
 }
 
-.nav .left .menu li a:hover {
-    color: #000;
+.nav .right a{
+    margin-left: 5px;
 }
 
-.nav .right a:first-child {
-    margin-right: 5px;
+.logoImage{
+    height: 60px;
 }
-.logo{
-    font-weight: bold;
+
+.drawerMenuLi{
+    font-size: 18px;
+    color: #4a5568; 
 }

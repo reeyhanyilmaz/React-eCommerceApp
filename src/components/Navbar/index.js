@@ -1,24 +1,82 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useBasket } from "../../contexts/BasketContext";
 
 function Navbar() {
-  const { loggedIn , user } = useAuth();
+  const { loggedIn, user } = useAuth();
   const { basketItems } = useBasket();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <nav className={styles.nav}>
       <div className={styles.left}>
-        <div className={styles.logo}>
-          <Link to="/">eCommerce</Link>
+        <div>
+          <Link to="/">
+            {/* eCommerce */}
+            <img
+              src="assets/logo.jpg"
+              alt="logo"
+              className={styles.logoImage}
+            />
+          </Link>
         </div>
 
         <ul className={styles.menu}>
           <li>
-            <Link to="/">Ürünler</Link>
+            <Link to="/">
+              <a onClick={onOpen}>Tüm Kategoriler</a>
+            </Link>
+            <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+              <DrawerOverlay />
+              <DrawerContent>
+                {/* <DrawerHeader borderBottomWidth="1px">Kategoriler</DrawerHeader> */}
+                <DrawerBody className={styles.drawerMenuLi}>
+                  <ul>
+                    <li>
+                      <Link to="/">
+                        Cam Malzeme
+                      </Link>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <Link to="/">
+                        Otomatik Pipet & Pipet Uçları
+                      </Link>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <Link to="/">
+                        Hacimsel Ölçüm
+                      </Link>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <Link to="/">
+                        Laboratuvar Cihazları
+                      </Link>
+                    </li>
+                  </ul>
+                </DrawerBody>
+              </DrawerContent>
+            </Drawer>
           </li>
         </ul>
       </div>
@@ -28,11 +86,11 @@ function Navbar() {
         {!loggedIn && (
           <>
             <Link to="/signin">
-              <Button colorScheme="pink">Giriş</Button>
+              <Button color="white" backgroundColor="#c0b9dd">Giriş</Button>
             </Link>
 
             <Link to="/signup">
-              <Button colorScheme="pink">Yeni Üye Girişi</Button>
+              <Button color="white" backgroundColor="#c0b9dd">Yeni Üye Girişi</Button>
             </Link>
           </>
         )}
@@ -43,25 +101,25 @@ function Navbar() {
             {/* giris yapılmıssa sepetteki ürünleri göstermek icin */}
             {basketItems.length > 0 && (
               <Link to="/basket">
-                <Button color="#F28482" outlineColor="#F28482" variant="outline">
+                <Button
+                  color="#4a5568"                  
+                  variant="outline">
                   Sepetim {basketItems.length}
                 </Button>
               </Link>
             )}
 
-              {/* admin islemleri */}
-            {
-             user?.role === "admin" && (
-                 <Link to="/admin">
-                   <Button colorScheme="pink" variant="ghost" >
-                      Admin
-                   </Button>
-                 </Link>
-              )
-            }
+            {/* admin islemleri */}
+            {user?.role === "admin" && (
+              <Link to="/admin">
+                <Button color="white" backgroundColor="#c0b9dd">
+                  Admin
+                </Button>
+              </Link>
+            )}
 
             <Link to="/profile">
-              <Button>Profil</Button>
+              <Button color="#4a5568">Profil</Button>
             </Link>
           </>
         )}

@@ -5,19 +5,34 @@ import {
   Button,
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   useDisclosure,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  MenuGroup,
 } from "@chakra-ui/react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useBasket } from "../../contexts/BasketContext";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { loggedIn, user } = useAuth();
   const { basketItems } = useBasket();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    //logout tıklanınca ansayfaya yönlendirmesi icin
+    logout(() => {
+      navigate("/");
+    });
+  };
 
   return (
     <nav className={styles.nav}>
@@ -35,9 +50,11 @@ function Navbar() {
 
         <ul className={styles.menu}>
           <li>
-            <Link to="/">
-              <a onClick={onOpen}>Tüm Kategoriler</a>
-            </Link>
+            <Link to="/">Ana Sayfa</Link>
+          </li>
+
+          <li>
+            <a onClick={onOpen}>Tüm Kategoriler</a>
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
               <DrawerOverlay />
               <DrawerContent>
@@ -45,33 +62,25 @@ function Navbar() {
                 <DrawerBody className={styles.drawerMenuLi}>
                   <ul>
                     <li>
-                      <Link to="/">
-                        Cam Malzeme
-                      </Link>
+                      <Link to="/">Cam Malzeme</Link>
                     </li>
                   </ul>
 
                   <ul>
                     <li>
-                      <Link to="/">
-                        Otomatik Pipet & Pipet Uçları
-                      </Link>
+                      <Link to="/">Otomatik Pipet & Pipet Uçları</Link>
                     </li>
                   </ul>
 
                   <ul>
                     <li>
-                      <Link to="/">
-                        Hacimsel Ölçüm
-                      </Link>
+                      <Link to="/">Hacimsel Ölçüm</Link>
                     </li>
                   </ul>
 
                   <ul>
                     <li>
-                      <Link to="/">
-                        Laboratuvar Cihazları
-                      </Link>
+                      <Link to="/">Laboratuvar Cihazları</Link>
                     </li>
                   </ul>
                 </DrawerBody>
@@ -86,11 +95,15 @@ function Navbar() {
         {!loggedIn && (
           <>
             <Link to="/signin">
-              <Button color="white" backgroundColor="#c0b9dd">Giriş</Button>
+              <Button color="white" backgroundColor="#c0b9dd">
+                Giriş
+              </Button>
             </Link>
 
             <Link to="/signup">
-              <Button color="white" backgroundColor="#c0b9dd">Yeni Üye Girişi</Button>
+              <Button color="white" backgroundColor="#c0b9dd">
+                Yeni Üye Girişi
+              </Button>
             </Link>
           </>
         )}
@@ -101,9 +114,7 @@ function Navbar() {
             {/* giris yapılmıssa sepetteki ürünleri göstermek icin */}
             {basketItems.length > 0 && (
               <Link to="/basket">
-                <Button
-                  color="#4a5568"                  
-                  variant="outline">
+                <Button color="#4a5568" variant="outline">
                   Sepetim {basketItems.length}
                 </Button>
               </Link>
@@ -118,9 +129,23 @@ function Navbar() {
               </Link>
             )}
 
-            <Link to="/profile">
-              <Button color="#4a5568">Profil</Button>
-            </Link>
+            <Menu>
+              <MenuButton as={Button} ml="1">
+                Profil
+              </MenuButton>
+              <MenuList>
+                <MenuGroup title="Profil">
+                  <MenuDivider />
+                  <Link to="/profile">
+                    <MenuItem>Hesap Bilgilerim</MenuItem>
+                  </Link>
+
+                  <MenuItem>
+                    <a onClick={handleLogout}>Çıkış Yap</a>
+                  </MenuItem>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
           </>
         )}
       </div>

@@ -1,0 +1,13 @@
+.footer{
+    background-color: #4a5568;
+    height: 170px;
+    width: 100%;
+    bottom:0;
+    left:0;
+    color:white;
+}
+
+.socialmediaIcon{
+    display: flex;
+    flex-direction: column;
+}

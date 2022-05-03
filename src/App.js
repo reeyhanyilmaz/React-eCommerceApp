@@ -9,6 +9,7 @@ import Basket from "./pages/Basket";
 import Error404 from "./pages/Error404";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 import ProductDetail from "./pages/ProductDetail";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
@@ -38,6 +39,8 @@ function App() {
               <Route path="*" element={<Error404 />} /> 
           </Routes> 
           </div>
+
+          <Footer />
 
       </div>      
   );

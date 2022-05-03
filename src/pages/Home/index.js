@@ -89,11 +89,12 @@ function Home() {
       <Grid templateColumns="repeat(1, 1fr)" gap={6} mt="20">
         <Text fontSize="lg">
           En kaliteli ve hijyenik malzemelerden yapılan ChemDev Kimyasal
-          Malzemeleri ile çalışmalarınızı en başarılı şekilde
-          gerçekleştirebileceksiniz. Yenilenen ürün yelpazemizi kaçırmamak için
-          bizi sosyal medya hesaplarımızdan takip edebilirsiniz. Bizimle telefon
-          ve mail yoluyla iletişime geçebilirsiniz.
+          Malzemeleri ile  çalışmalarınızı en başarılı şekilde
+          gerçekleştirebileceksiniz. Yenilenen ürün yelpazemizi kaçırmamak
+          için bizi sosyal medya hesaplarımızdan takip edebilirsiniz.
+          Bizimle telefon ve mail yoluyla iletişime geçebilirsiniz.
         </Text>
+
 
         <IconButton
           variant="outline"
@@ -109,6 +110,7 @@ function Home() {
           aria-label="Call Segun"
           icon={<PhoneIcon />}
         />
+        
       </Grid>
     </div>
   );

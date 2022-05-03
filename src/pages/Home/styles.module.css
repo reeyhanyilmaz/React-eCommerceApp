@@ -1,0 +1,50 @@
+
+.homeImageGallery {
+   height: 50px;
+}
+
+/* .homeFooter{
+    background-color: #4a5568;
+    height: 100px;
+    width: 100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+} */
+
+.enCokSatılanlar{
+    border: solid 3px #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #4a5568;
+    font-weight: bold;
+}
+
+.ozelFiyatlarBox{
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    border: solid 3px #c0b9dd;
+    border-radius: 8px;
+}
+
+.ozelFiyatlar{
+    background-color: #c0b9dd;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    margin-top: 0;
+}
+
+.ozelFiyatlarImage{
+    width: 40%;
+}
+

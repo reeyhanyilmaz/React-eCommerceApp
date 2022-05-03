@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Basket from "./pages/Basket";
 import Error404 from "./pages/Error404";
 import Admin from "./pages/Admin";
+import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
@@ -18,7 +19,8 @@ function App() {
 
           <div id="content">
           <Routes>
-              <Route path="/" element={<Products /> }/>
+              <Route path="/" element={<Home /> }/>
+              <Route path="/products" element={<Products /> }/>
               <Route path="/product/:id" element={<ProductDetail /> }/>
               <Route path="/signin" element={<Signin /> } />
               <Route path="/signup" element={<Signup />} /> 

@@ -62,7 +62,7 @@ function Navbar() {
                 <DrawerBody className={styles.drawerMenuLi}>
                   <ul>
                     <li>
-                      <Link to="/">Cam Malzeme</Link>
+                      <Link to="/Products/CamMalzeme">Cam Malzeme</Link>
                     </li>
                   </ul>
 

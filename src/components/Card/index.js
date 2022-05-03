@@ -1,6 +1,6 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import moment from "moment"; //moment ile tarih saat islemleri yapılır.
+// import moment from "moment"; //moment ile tarih saat islemleri yapılır.
 import { useBasket } from "../../contexts/BasketContext";
 
 function Card({ item, data }) {
@@ -11,24 +11,35 @@ function Card({ item, data }) {
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3">
       <Link to={`/product/${item.id}`}>
-        <Image src={item.image} alt="products" loading="lazy" width="100%" />
+        <Image
+          src={item.image}
+          alt="products"
+          loading="lazy"
+          width="100%"
+          height="300px"
+        />
         {/* loading lazy ile sayfa ilk yüklendiginde fotograf yokmus gibi göstermesini engellemek icin. */}
 
-        <Box>
+        <Box mt="2">
           <Box display="flex" justifyContent="space-between">
-            <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight">
+            <Box fontWeight="semibold" as="h4" lineHeight="tight" fontSize="lg">
               {item.title}
             </Box>
 
             {/* <Box d="plex" alignItems="baseline" >
                 {moment(item.createdAt).format("DD/MM/YYYY")}
                 </Box> */}
-            <Box>{item.price}$</Box>
+            <Box fontStyle="italic" fontSize="md">
+              {item.price}$
+            </Box>
           </Box>
+
+          <Box>{item.description}</Box>
         </Box>
       </Link>
 
       <Button
+        mt="2"
         backgroundColor={findBasketItems ? "#c0b9dd" : "#84A59D"}
         color="white"
         variant="solid"

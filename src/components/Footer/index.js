@@ -13,14 +13,14 @@ function Footer() {
           width="100%"
           templateColumns="repeat(4, 1fr)"
           gap={6}
-          pt="6"
+          pt="8"
           justifyContent={"space-between"}
           justifyItems={"stretch"}
           columns={[2, null, 3]}>
 
           <GridItem>
             <Box>
-              <Text fontSize="lg">ChemDev Kimyasal Satış</Text>
+              <Text fontSize="lg" marginBottom={"3"}>ChemDev Kimyasal Satış</Text>
               <ul>
                 <li>
                   <a>Biz Kimiz</a>
@@ -37,7 +37,7 @@ function Footer() {
 
           <GridItem>
             <Box>
-              <Text fontSize="lg" mb="6">
+              <Text fontSize="lg" marginBottom={"3"} textAlign={"center"}>
                 Sosyal Medya
               </Text>
               <VStack>
@@ -53,21 +53,22 @@ function Footer() {
 
           <GridItem>
             <Box>
-              WhatsApp Destek
-              <Text fontSize="2xl"> 0850 000 00 00 </Text>
+              <Text marginBottom={"3"} textAlign={"center"} fontSize="lg">WhatsApp Destek</Text>
+              <Text fontSize="2xl" textAlign={"center"}> 0850 000 00 00 </Text>
               <WhatsappIcon
                 size={35}
                 round={false}
                 borderRadius="8px"
                 display="flex"
                 justifyContent="center"
+                width={"100%"}
               />
             </Box>
           </GridItem>
 
           <GridItem>
             <Box>
-              <Text fontSize="lg">Yardım</Text>
+              <Text fontSize="lg" marginBottom={"3"}>Yardım</Text>
               <ul>
                 <li>
                   <a>Canlı Yardım</a>
@@ -84,7 +85,7 @@ function Footer() {
 
         </Grid>
 
-        <Divider mt="5" />
+        <Divider mt="6" />
 
         <Text textAlign="center" mt="2" fontSize="16" p="20px 0">
           Copyright 2022 © ChemDev | Developer by

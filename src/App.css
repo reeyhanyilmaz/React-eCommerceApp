@@ -1,8 +1,14 @@
 #content {
   padding: 15px;
   min-height: 500px;
+  display: flex;
+  justify-content: center;
 }
 
+.container{
+  max-width: 1200px;
+  width: 100%;
+}
 
 /*scroll button*/
 .back-to-top {

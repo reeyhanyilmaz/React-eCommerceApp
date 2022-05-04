@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./styles.module.css";
 import { Grid, Box, Text } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
-import { Button, HStack, Divider } from "@chakra-ui/react";
-import { WhatsappIcon } from "react-share";
+import { Button, VStack, Divider } from "@chakra-ui/react";
+import { WhatsappIcon} from "react-share";
 
 function Footer() {
   return (
     <div className={styles.footer}>
-      <Grid templateColumns="repeat(4, 1fr)" gap={6} mt="10" ml="5" pt="3">
+      <div className={styles.innerFooter}>
+      <Grid templateColumns="repeat(4, 1fr)" gap={6}  pt="4" justifyContent="space-between" columns={[2,null,3]}>
         <Box>
           <Text fontSize="lg">ChemDev Kimyasal Satış</Text>
           <ul>
@@ -29,14 +30,14 @@ function Footer() {
             Sosyal Medya
           </Text>
 
-          <HStack>
-            <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
+          <VStack>
+            <Button  width="100%" colorScheme="facebook" leftIcon={<FaFacebook />}>
               Facebook
             </Button>
-            <Button colorScheme="twitter" leftIcon={<FaTwitter />}>
+            <Button width="100%" colorScheme="twitter" leftIcon={<FaTwitter />}>
               Twitter
             </Button>
-          </HStack>
+          </VStack>
         </Box>
 
         <Box>
@@ -69,10 +70,12 @@ function Footer() {
 
       <Divider mt="5" />
 
-      <Text textAlign="center" mt="2" fontSize="16">
+      <Text textAlign="center" mt="2" fontSize="16" p="20px 0">
         Copyright 2022 © ChemDev | Developer by
         <a href="https://www.linkedin.com/in/reeyhanyilmaz/"> Reyhan Yılmaz</a>
       </Text>
+
+      </div>
     </div>
   );
 }

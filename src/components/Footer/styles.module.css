@@ -1,10 +1,18 @@
 .footer{
     background-color: #4a5568;
-    height: 170px;
     width: 100%;
-    bottom:0;
-    left:0;
     color:white;
+    display: flex;
+    justify-content: center;
+}
+
+.innerFooter{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
 }
 
 .socialmediaIcon{

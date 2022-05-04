@@ -1,14 +1,19 @@
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 13px;
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
   line-height: 2px;
   align-items: center;
-  /* position: fixed; 
-    top: 0;
-    width: 100%; */
+}
+
+.innerContainer{
+display: flex;
+justify-content: space-between;
+max-width: 1200px;
+width: 100%;
+align-items: center;
 }
 
 .nav .left {

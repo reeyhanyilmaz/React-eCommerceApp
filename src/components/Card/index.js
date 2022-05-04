@@ -44,6 +44,7 @@ function Card({ item, data }) {
         color="white"
         variant="solid"
         onClick={() => addToBasket(item, findBasketItems)}
+        width="100%"
       >
         {findBasketItems ? "Sepetten kaldır" : "Sepete Ekle"}
       </Button>

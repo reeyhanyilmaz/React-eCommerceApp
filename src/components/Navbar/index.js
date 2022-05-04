@@ -36,6 +36,7 @@ function Navbar() {
 
   return (
     <nav className={styles.nav}>
+      <div className={styles.innerContainer}>
       <div className={styles.left}>
         <div>
           <Link to="/">
@@ -150,6 +151,8 @@ function Navbar() {
             </Menu>
           </>
         )}
+      </div>
+
       </div>
     </nav>
   );

@@ -42,6 +42,7 @@ function App() {
       <Navbar />
 
       <div id="content">
+        <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -77,7 +78,7 @@ function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div>
-      <Footer />
+     
 
       {/* Scroll Up butonu için yazıldı */}
       <>
@@ -88,6 +89,10 @@ function App() {
           </button>
         )}
       </>
+
+      </div>
+
+      <Footer />
     </div>
   );
 }

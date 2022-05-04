@@ -22,21 +22,27 @@ export const postProduct = async (input) => {
   
   //tüm kategoriler sekmesinden gelecek API'lar
 export const fetchCamMalzeme = async({ pageParam = 1 }) => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/camMalzeme?page=${pageParam}&limit=12`); 
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products?page=${pageParam}&limit=12`);
 
-    return data;
+    const camMalzeme = data.filter(product => product.category === 1);
+    console.log(camMalzeme);
+    return camMalzeme;
 };
 
 export const fetchPipet = async({ pageParam = 1 }) => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT2}/pipet?page=${pageParam}&limit=12`); 
-
-    return data;
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products`);
+    
+    const pipet = data.filter(product => product.category === 2);
+    console.log(pipet)
+    return pipet;    
 };
 
-export const fetchHacimselOlcum = async({ pageParam = 1 }) => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT2}/hacimselOlcum?page=${pageParam}&limit=12`); 
 
-    return data;
+export const fetchHacimselOlcum = async({ pageParam = 1 }) => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products`);
+
+    const hacimselOlcum = data.filter(product => product.category === 3);
+    return hacimselOlcum;
 };
 
 //user eklenmesi, yani yeni kullanıcının eklenmesi.

@@ -74,7 +74,7 @@ function Navbar() {
 
                   <ul>
                     <li>
-                      <Link to="/">Hacimsel Ölçüm</Link>
+                      <Link to="/Products/HacimselOlcum">Hacimsel Ölçüm</Link>
                     </li>
                   </ul>
 

@@ -20,6 +20,7 @@ export const postProduct = async (input) => {
     return data;
   };
   
+  //tüm kategoriler sekmesinden gelecek API'lar
 export const fetchCamMalzeme = async({ pageParam = 1 }) => {
     const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/camMalzeme?page=${pageParam}&limit=12`); 
 
@@ -32,7 +33,11 @@ export const fetchPipet = async({ pageParam = 1 }) => {
     return data;
 };
 
+export const fetchHacimselOlcum = async({ pageParam = 1 }) => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT2}/hacimselOlcum?page=${pageParam}&limit=12`); 
 
+    return data;
+};
 
 //user eklenmesi, yani yeni kullanıcının eklenmesi.
 export const fetchRegister = async(input) => {

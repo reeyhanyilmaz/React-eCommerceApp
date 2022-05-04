@@ -1,0 +1,33 @@
+[
+    {
+     "id": 22,
+     "title": "Dispenser",
+     "description": "5 - 10 ml vanasız dijital Dispenser",
+     "image": [
+      "https://www.sentezlab.com/class/INNOVAEditor/assets/Brand%20Dispensette%20S%20Organic%20Analog%20Dispenser%200.5-5%20mL%20vitrin.jpg",
+      "https://cdn.dsmcdn.com/ty20/product/media/images/20201101/0/20979918/98360313/2/2_org_zoom.jpg"
+     ],
+     "createdAt": "2020-01-01T00:00:00.000Z",
+     "price": 375.0
+    },
+    {
+     "id": 23,
+     "title": "Dispenser",
+     "description": "5 - 60 ml otaklavlanabilir şişe üstü dağıtıcı",
+     "image": [
+      "https://st.myideasoft.com/idea/df/26/myassets/products/565/1-1.jpg?revision=1614347894","https://www.humeau.com/media/catalog/product/cache/1/image/730x/b6c53eefddb148171814c2f11aa0d200/2/4/24470609000_20191106163102/.jpg"
+     ],
+     "createdAt": "2020-01-01T00:00:00.000Z",
+     "price": 410
+    },
+    {
+     "id": 24,
+     "title": "Djital Büret",
+     "description": "50 ml dijital büret",
+     "image": [
+      "https://pluslab.com.tr/uploads/urun/medium/MTVmYzhjNDA0ZWU3MzU.jpg","https://st.myideasoft.com/shop/cr/66/myassets/products/690/brand-titrette-dijital-buret-50-ml-rs-232-cikisli-10988-png.png?revision=1602720337"
+     ],
+     "createdAt": "2020-01-01T00:00:00.000Z",
+     "price": 350
+    }
+   ]

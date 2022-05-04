@@ -81,7 +81,7 @@ function Navbar() {
 
                   <ul>
                     <li>
-                      <Link to="/Products/LaboratuvarCihazları">Laboratuvar Cihazları</Link>
+                      <Link to="/Products/LaboratuvarCihazlari">Laboratuvar Cihazları</Link>
                     </li>
                   </ul>
                 </DrawerBody>

@@ -5,7 +5,7 @@ import { Box } from "@chakra-ui/react";
 import CamMalzeme from "./CamMalzeme";
 import Pipet from "./Pipet";
 import HacimselOlcum from "./HacimselOlcum";
-import LaboratuvarCihazları from "./LaboratuvarCihazları";
+import LaboratuvarCihazlari from "./LaboratuvarCihazlari";
 
 function Products() {
   return (
@@ -16,8 +16,8 @@ function Products() {
           <Route path="pipet" element={<Pipet />} />
           <Route path="hacimselOlcum" element={<HacimselOlcum />} />
           <Route
-            path="laboratuvarCihazları"
-            element={<LaboratuvarCihazları />}
+            path="laboratuvarCihazlari"
+            element={<LaboratuvarCihazlari />}
           />
         </Routes>
       </Box>

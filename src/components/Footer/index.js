@@ -8,17 +8,17 @@ import { WhatsappIcon } from "react-share";
 function Footer() {
   return (
     <div className={styles.footer}>
-      <div className={styles.innerFooter}>
+      <div className={styles.innerFooter} style={{ textAlign: "center" }} >
         <Grid
           width="100%"
-          templateColumns="repeat(4, 1fr)"
+          templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)","repeat(4, 1fr)"]}
           gap={6}
           pt="8"
           justifyContent={"space-between"}
           justifyItems={"stretch"}
           columns={[2, null, 3]}>
 
-          <GridItem>
+          <GridItem padding={"0.5rem"}>
             <Box>
               <Text fontSize="lg" marginBottom={"3"}>ChemDev Kimyasal Satış</Text>
               <ul>
@@ -35,9 +35,9 @@ function Footer() {
             </Box>
           </GridItem>
 
-          <GridItem>
+           <GridItem padding={"0.5rem"}>
             <Box>
-              <Text fontSize="lg" marginBottom={"3"} textAlign={"center"}>
+              <Text fontSize="lg" marginBottom={"3"}>
                 Sosyal Medya
               </Text>
               <VStack>
@@ -51,10 +51,10 @@ function Footer() {
             </Box>
           </GridItem>
 
-          <GridItem>
+           <GridItem padding={"0.5rem"}>
             <Box>
-              <Text marginBottom={"3"} textAlign={"center"} fontSize="lg">WhatsApp Destek</Text>
-              <Text fontSize="2xl" textAlign={"center"}> 0850 000 00 00 </Text>
+              <Text marginBottom={"3"} fontSize="lg">WhatsApp Destek</Text>
+              <Text fontSize="2xl"> 0850 000 00 00 </Text>
               <WhatsappIcon
                 size={35}
                 round={false}
@@ -66,7 +66,7 @@ function Footer() {
             </Box>
           </GridItem>
 
-          <GridItem>
+           <GridItem padding={"0.5rem"}>
             <Box>
               <Text fontSize="lg" marginBottom={"3"}>Yardım</Text>
               <ul>
@@ -93,7 +93,7 @@ function Footer() {
         </Text>
 
       </div>
-    </div>
+    </div >
   );
 }
 

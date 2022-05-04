@@ -65,9 +65,9 @@ function Products() {
               calcelText="Hayır"
               placement="left"
             >
-              <a href="#" style={{ marginLeft: 10 }}>
+              <button type="button" style={{ marginLeft: 10 }}>
                 <DeleteIcon color="#4a5568" />
-              </a>
+              </button>
             </Popconfirm>
           </>
         ),

@@ -3,6 +3,10 @@
    height: 50px;
 }
 
+.homepage__image-gallery-box .image-gallery-image{
+    height: 500px !important; /*büyük boy resimlerin hepsini aynı yükseklik yaptım*/
+}
+
 /* .homeFooter{
     background-color: #4a5568;
     height: 100px;

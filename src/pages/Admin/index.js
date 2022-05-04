@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink , Route, Routes } from 'react-router-dom';
 import "./style.css";
 import { Box } from '@chakra-ui/react';
-import Home from './Home';
 import Products from './Products';
 import Orders from './Orders'; 
 import ProductDetail from './ProductDetail';

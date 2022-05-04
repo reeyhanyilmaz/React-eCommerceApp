@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 // import "./style.css";
 import { Box } from "@chakra-ui/react";
 import CamMalzeme from "./CamMalzeme";

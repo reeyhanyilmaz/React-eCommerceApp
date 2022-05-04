@@ -12,42 +12,48 @@ function Home() {
         "https://www.elislab.com.tr/wp-content/uploads/2020/01/laboratuvar-sarf-malzemeleri.jpg",
       thumbnail:
         "https://www.elislab.com.tr/wp-content/uploads/2020/01/laboratuvar-sarf-malzemeleri.jpg",
+      originalHeight: "500px"
     },
     {
       original:
         "https://tetralaboratuvar.com/wp-content/uploads/2021/03/Ozel-Laboratuvar.jpg",
       thumbnail:
         "https://tetralaboratuvar.com/wp-content/uploads/2021/03/Ozel-Laboratuvar.jpg",
+      originalHeight: "500px"
     },
     {
       original:
         "https://www.bilimeks.com.tr/wp-content/uploads/2020/01/labmalzzeme.jpg",
       thumbnail:
         "https://www.bilimeks.com.tr/wp-content/uploads/2020/01/labmalzzeme.jpg",
+      originalHeight: "500px"
     },
     {
       original:
         "https://www.sentezlab.com/class/INNOVAEditor/assets/laboratuvar%20cam%20malzemeleri.jpg",
       thumbnail:
         "https://www.sentezlab.com/class/INNOVAEditor/assets/laboratuvar%20cam%20malzemeleri.jpg",
+      originalHeight: "500px"
     },
     {
       original:
         "https://www.nasilbe.com/wp-content/uploads/2020/07/Laboratuvar-Malzemelerinin-isimleri-Nelerdir-1024x551.jpg",
       thumbnail:
         "https://www.nasilbe.com/wp-content/uploads/2020/07/Laboratuvar-Malzemelerinin-isimleri-Nelerdir-1024x551.jpg",
+      originalHeight: "500px"
     },
     {
       original:
         "https://www.kocar.com.tr/uploads/slider/images/000/000/049/medium",
       thumbnail:
         "https://www.kocar.com.tr/uploads/slider/images/000/000/049/medium",
+      originalHeight: "500px"
     },
   ];
 
   return (
     <div className={styles.homePage}>
-      <Box>
+      <Box className="homepage__image-gallery-box">
         <ImageGallery
           items={images}
           thumbnailPosition="right"
@@ -110,7 +116,7 @@ function Home() {
           aria-label="Call Segun"
           icon={<PhoneIcon />}
         />
-        
+
       </Grid>
     </div>
   );

@@ -41,7 +41,7 @@ function Navbar() {
           <Link to="/">
             {/* eCommerce */}
             <img
-              src="assets/logo.jpg"
+              src="/assets/logo.jpg"
               alt="logo"
               className={styles.logoImage}
             />
@@ -80,7 +80,7 @@ function Navbar() {
 
                   <ul>
                     <li>
-                      <Link to="/">Laboratuvar Cihazları</Link>
+                      <Link to="/Products/LaboratuvarCihazları">Laboratuvar Cihazları</Link>
                     </li>
                   </ul>
                 </DrawerBody>

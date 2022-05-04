@@ -5,7 +5,7 @@ import { useInfiniteQuery } from "react-query";
 //useQuery bize sade API çağrımları saglar. örn: loading, error icin state tanımları yapmamız gerekirdi. useQuery ile hazır alabiliyoruz.
 import { fetchPipet } from "../../../api";
 
-function CamMalzeme() {
+function Pipet() {
   //useInfinityQuery daha fazla sayfa yüklemesi icin.
   const {
     data,
@@ -64,4 +64,4 @@ function CamMalzeme() {
   );
 }
 
-export default CamMalzeme;
+export default Pipet;

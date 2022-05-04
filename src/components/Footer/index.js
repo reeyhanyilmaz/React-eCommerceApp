@@ -70,9 +70,8 @@ function Footer() {
       <Divider mt="5" />
 
       <Text textAlign="center" mt="2" fontSize="16">
-        {" "}
         Copyright 2022 © ChemDev | Developer by
-        <a href="https://www.linkedin.com/in/reeyhanyilmaz/">Reyhan Yılmaz</a>
+        <a href="https://www.linkedin.com/in/reeyhanyilmaz/"> Reyhan Yılmaz</a>
       </Text>
     </div>
   );

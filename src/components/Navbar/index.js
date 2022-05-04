@@ -68,7 +68,7 @@ function Navbar() {
 
                   <ul>
                     <li>
-                      <Link to="/">Otomatik Pipet & Pipet Uçları</Link>
+                      <Link to="/Products/Pipet">Otomatik Pipet & Pipet Uçları</Link>
                     </li>
                   </ul>
 

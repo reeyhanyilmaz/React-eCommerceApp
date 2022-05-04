@@ -7,14 +7,6 @@ export const fetchProductList = async({ pageParam = 1 }) => {
     return data;
 };
 
-
-export const fetchCamMalzeme = async({ pageParam = 1 }) => {
-    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/camMalzeme?page=${pageParam}&limit=12`); 
-    //pageParam yani sayfa numarası
-
-    return data;
-};
-
 export const fetchProduct = async(id) => {
     const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products/?id=${id}`);
 
@@ -27,6 +19,20 @@ export const postProduct = async (input) => {
   
     return data;
   };
+  
+export const fetchCamMalzeme = async({ pageParam = 1 }) => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/camMalzeme?page=${pageParam}&limit=12`); 
+
+    return data;
+};
+
+export const fetchPipet = async({ pageParam = 1 }) => {
+    const {data} = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT2}/pipet?page=${pageParam}&limit=12`); 
+
+    return data;
+};
+
+
 
 //user eklenmesi, yani yeni kullanıcının eklenmesi.
 export const fetchRegister = async(input) => {

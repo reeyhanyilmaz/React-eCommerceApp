@@ -3,7 +3,7 @@ import { Grid, Box, Flex, Button } from "@chakra-ui/react";
 import Card from "../../../components/Card";
 import { useInfiniteQuery } from "react-query";
 //useQuery bize sade API çağrımları saglar. örn: loading, error icin state tanımları yapmamız gerekirdi. useQuery ile hazır alabiliyoruz.
-import { fetchCamMalzeme } from "../../../api";
+import { fetchPipet } from "../../../api";
 
 function CamMalzeme() {
   //useInfinityQuery daha fazla sayfa yüklemesi icin.
@@ -14,7 +14,7 @@ function CamMalzeme() {
     hasNextPage,
     isFetchingNextPage,
     status,
-  } = useInfiniteQuery("products", fetchCamMalzeme, {
+  } = useInfiniteQuery("products", fetchPipet, {
     getNextPageParam: (lastPage, pages) => {
       const morePagesExist = lastPage?.length === 12;
 

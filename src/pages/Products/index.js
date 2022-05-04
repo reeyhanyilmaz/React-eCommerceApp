@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink , Route, Routes } from 'react-router-dom';
 // import "./style.css";
 import { Box } from '@chakra-ui/react';
-import {Button} from "@chakra-ui/react";
 import CamMalzeme from './CamMalzeme';
+import Pipet from './Pipet';
 
 function Products() {
 
@@ -33,6 +33,7 @@ function Products() {
             <Routes>
                 {/* <Route  path="/" element={<Home />} /> */}
                 <Route  path="cammalzeme" element={<CamMalzeme/>} />
+                <Route  path="pipet" element={<Pipet/>} />
                 {/* <Route  path="products" element={<Products/>} />
                 <Route  path="products/new" element={<NewProduct />} />
                 <Route  path="products/:id" element={<ProductDetail/>} /> */}

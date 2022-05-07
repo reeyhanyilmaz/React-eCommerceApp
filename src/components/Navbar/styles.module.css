@@ -42,6 +42,13 @@ align-items: center;
   height: 60px;
 }
 
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+}
+
 .drawerMenuLi {
   font-size: 18px;
   color: #4a5568;

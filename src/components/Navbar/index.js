@@ -38,17 +38,23 @@ function Navbar() {
     <nav className={styles.nav}>
       <div className={styles.innerContainer}>
       <div className={styles.left}>
-        <div>
+       
           <Link to="/">
-            {/* eCommerce */}
             <img
               src="/assets/logo.jpg"
               alt="logo"
               className={styles.logoImage}
             />
           </Link>
-        </div>
 
+          <Link to="/">
+            <img
+              src="/assets/chemdevv.jpg"
+              alt="chemdev"
+              className={styles.logo}
+            />
+          </Link>
+          
         <ul className={styles.menu}>
           <li>
             <Link to="/">Ana Sayfa</Link>

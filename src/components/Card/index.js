@@ -16,11 +16,14 @@ function Card({ item, data }) {
           alt="products"
           loading="lazy"
           width="100%"
-          height="300px"
-        />
-        {/* loading lazy ile sayfa ilk yüklendiginde fotograf yokmus gibi göstermesini engellemek icin. */}
+          height="250px"
+        // border="solid 1px #c0b9dd"
+        boxShadow="0 0 10px rgba(0,0,0,0.1)"
+        borderRadius="8px"/>
+        {/* loading lazy ile sayfa ilk yüklendiginde fotograf yokmus gibi göstermesini engellemek icin. */}        
+      </Link>
 
-        <Box mt="2">
+      <Box mt="2">
           <Box display="flex" justifyContent="space-between">
             <Box fontWeight="semibold" as="h4" lineHeight="tight" fontSize="lg">
               {item.title}
@@ -36,7 +39,6 @@ function Card({ item, data }) {
 
           <Box>{item.description}</Box>
         </Box>
-      </Link>
 
       <Button
         mt="2"

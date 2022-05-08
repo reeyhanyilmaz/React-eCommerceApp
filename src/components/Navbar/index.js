@@ -15,6 +15,7 @@ import {
   MenuDivider,
   MenuGroup,
 } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useAuth } from "../../contexts/AuthContext";
 import { useBasket } from "../../contexts/BasketContext";
 import { useNavigate } from "react-router-dom";
@@ -61,7 +62,7 @@ function Navbar() {
           </li>
 
           <li>
-            <a onClick={onOpen}>Tüm Kategoriler</a>
+            <a onClick={onOpen}>Tüm Kategoriler<ChevronDownIcon boxSize="1.5em"/></a>
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
               <DrawerOverlay />
               <DrawerContent>

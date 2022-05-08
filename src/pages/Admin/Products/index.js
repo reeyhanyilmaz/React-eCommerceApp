@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 //veri çekme query /  veri silme ,ekleme, güncelleme motation.
 import { useQuery, useMutation, useQueryClient } from "react-query";
-import { fetchProductList, deleteProduct } from "../../../api";
+import { fetchProductList, deleteProduct , fetchProductNonePageLimit } from "../../../api";
 import { Table, Popconfirm } from "antd";
 import { Text, Button, Flex } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
@@ -13,7 +13,7 @@ function Products() {
 
   const { isLoading, isError, data, error } = useQuery(
     "admin:products",
-    fetchProductList
+    fetchProductNonePageLimit
   );
 
   const deleteMutation = useMutation(deleteProduct, {

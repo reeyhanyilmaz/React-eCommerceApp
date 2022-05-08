@@ -23,10 +23,12 @@ import {
 import { Link } from "react-router-dom";
 import { postOrder } from "../../api";
 import { useAuth } from "../../contexts/AuthContext";
+import { QuantityPicker } from "react-qty-picker";
 
 function Basket() {
   const [address, setAddress] = useState("");
-  const { basketItems, removeFromBasket, emptyBasket } = useBasket();
+  const { basketItems, setBasketItems, removeFromBasket, emptyBasket } =
+    useBasket();
   const { user } = useAuth();
   console.log(user);
   //chakra'dan aldık
@@ -34,8 +36,25 @@ function Basket() {
   const initialRef = useRef();
   const toast = useToast();
 
+  //sepette item'ı arttırıp azalmak icin.
+  const [count, setCount] = useState(1);
+
+  const increment = (item_id) => {
+    const newCount = basketItems.find((item) => item.id === item_id);
+    if (newCount) {
+      setCount(count + 1);
+    }
+  };
+
+  const decrement = (item_id) => {
+    const newCount = basketItems.find((item) => item.id === item_id);
+    if (newCount) {
+      setCount(count > 1 ? count - 1 : count);
+    }
+  };
+
   //toplama islemini yapacak func.
-  const total = basketItems.reduce((acc, item) => acc + item.price, 0);
+  const total = basketItems.reduce((acc, item) => acc + count * item.price, 0);
 
   console.log(basketItems);
   const handleSubmitForm = async (e) => {
@@ -62,7 +81,7 @@ function Basket() {
     );
   };
   return (
-    <Box p="5">
+    <Box>
       {basketItems.length < 1 && (
         <Alert status="warning">Sepetinizde ürün bulunmamaktadır.</Alert>
       )}
@@ -73,34 +92,70 @@ function Basket() {
           </Alert>
         ) && (
           <>
-            <Text fontSize="2xl" mb="2">
-              Sepetim
-            </Text>
+            <Text fontSize="2xl">Sepetim</Text>
             <ul className={styles.basketUl}>
               {basketItems.map((item) => (
                 <li key={item.id} style={{ marginBottom: 15 }}>
-                  <Link to={`/product/${item.id}`}>
-                    <Image
-                      hmtlWidth={200}
-                      loading="lazy"
-                      src={item.image}
-                      alt="basket item"
-                    />
-                  </Link>
+                  <Box>
+                    <Link to={`/product/${item.id}`}>
+                      <Image
+                        width="100"
+                        height="100"
+                        loading="lazy"
+                        src={item.image}
+                        alt="basket item"
+                      />
+                    </Link>
+                  </Box>
 
-                  <Link to={`/product/${item.id}`}>
-                    <Text fontSize="17">{item.title}</Text>
-                  </Link>
+                  <Box>
+                    <Link to={`/product/${item.id}`}>
+                      <Text fontSize="17">{item.title}</Text>
+                      <Text fontSize="14">{item.description}</Text>
+                    </Link>
+                  </Box>
 
-                  <Text fontSize="17">{item.price}.0 $</Text>
+                  <Box display="flex" flex-direction="row">
+                    {/* <Button onClick={() => setCount(count>1 ? count-1 : count)}>-</Button>
+                           {
+                              count >= 1 && ( <QuantityPicker value={count} onChange={setCount} min="1" smooth  width='8rem' /> )                                */}
+                    {/* }   */}
 
-                  <Button
-                    color="white"
-                    backgroundColor="#c0b9dd"
-                    onClick={() => removeFromBasket(item.id)}
-                  >
-                    Sepetten Kaldır
-                  </Button>
+                    {/* {basketItems.map((item) => item.id === id) && (
+                        <Button onClick={() => setCount(count - 1)}>-</Button>
+                      )}
+                      <Text fontSize="14">{count}</Text>
+                      {basketItems.map((item) => item.id === id) && (
+                        <Button onClick={() => setCount(count + 1)}>+</Button>
+                      )} */}
+
+                    <Button onClick={() => decrement(item.id)}>-</Button>
+
+                    <Text
+                      fontSize="14"
+                      display="flex"
+                      alignItems="center"
+                      p="2"
+                    >
+                      {count}
+                    </Text>
+
+                    <Button onClick={() => increment(item.id)}>+</Button>
+                  </Box>
+
+                  <Box>
+                    <Text fontSize="17">{item.price * count}.0 $</Text>
+                  </Box>
+
+                  <Box>
+                    <Button
+                      color="white"
+                      backgroundColor="#c0b9dd"
+                      onClick={() => removeFromBasket(item.id)}
+                    >
+                      Sepetten Kaldır
+                    </Button>
+                  </Box>
                 </li>
               ))}
             </ul>

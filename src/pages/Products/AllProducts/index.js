@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { Grid, Box, Input, Text} from "@chakra-ui/react";
+import { Grid, Box, Input, Text } from "@chakra-ui/react";
 import Card from "../../../components/Card";
 import { useQuery } from "react-query";
 //useQuery bize sade API çağrımları saglar. örn: loading, error icin state tanımları yapmamız gerekirdi. useQuery ile hazır alabiliyoruz.
@@ -29,29 +29,28 @@ function AllProducts() {
         value={search}
         onChange={handleSearch}
       />
-      
-      <Text> Toplam filtrelenen ürün sayısı: ({filteredData.length} )</Text> 
 
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
-        {filteredData && filteredData.map((item, i) => (
-          <Box w="100%" key={i}>
-            <Card item={item} />
-          </Box>
-        ))}
-      </Grid>
-      
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
-        {data &&
-          data.map((item, i) => (
-            <Box w="100%" key={i}>
-              <Card item={item} />
-            </Box>
-          ))}
-      </Grid>
+      {/* {filteredData.length >0 ? <Text> Toplam filtrelenen ürün sayısı: ({filteredData.length} )</Text> : <Text> Filtreleme sonucu ürün bulunamadı.</Text>}  */}
 
-      
-
-    
+      {filteredData ? (
+        <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+          {filteredData &&
+            filteredData.map((item, i) => (
+              <Box w="100%" key={i}>
+                <Card item={item} />
+              </Box>
+            ))}
+        </Grid>
+      ) : (
+        <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+          {data &&
+            data.map((item, i) => (
+              <Box w="100%" key={i}>
+                <Card item={item} />
+              </Box>
+            ))}
+        </Grid>
+      )}
     </div> // return kapsayıcı div
   );
 }

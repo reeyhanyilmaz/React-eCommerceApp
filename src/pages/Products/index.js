@@ -6,12 +6,14 @@ import CamMalzeme from "./CamMalzeme";
 import Pipet from "./Pipet";
 import HacimselOlcum from "./HacimselOlcum";
 import LaboratuvarCihazlari from "./LaboratuvarCihazlari";
+import AllProducts from "./AllProducts";
 
 function Products() {
   return (
     <div>
       <Box mt="2">
         <Routes>
+          <Route path="allProducts" element={<AllProducts />} />
           <Route path="camMalzeme" element={<CamMalzeme />} />
           <Route path="pipet" element={<Pipet />} />
           <Route path="hacimselOlcum" element={<HacimselOlcum />} />

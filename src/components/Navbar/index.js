@@ -62,7 +62,7 @@ function Navbar() {
           </li>
 
           <li>
-            <a onClick={onOpen}>Tüm Kategoriler<ChevronDownIcon boxSize="1.5em"/></a>
+            <a onClick={onOpen}>Kategoriler<ChevronDownIcon boxSize="1.5em"/></a>
             <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
               <DrawerOverlay />
               <DrawerContent>
@@ -94,6 +94,10 @@ function Navbar() {
                 </DrawerBody>
               </DrawerContent>
             </Drawer>
+          </li>
+
+          <li>
+            <Link to="/Products/AllProducts">Ürünler</Link>
           </li>
         </ul>
       </div>

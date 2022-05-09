@@ -26,8 +26,10 @@ function AllProducts() {
       <Input
         variant="filled"
         placeholder="Aramak istediğiniz anahtar kelimeyi yazınız.."
+        _placeholder={{ opacity: 1, color: 'gray.500' }}
         value={search}
         onChange={handleSearch}
+        focusBorderColor="#84A59D"
       />
 
       {/* {filteredData.length >0 ? <Text> Toplam filtrelenen ürün sayısı: ({filteredData.length} )</Text> : <Text> Filtreleme sonucu ürün bulunamadı.</Text>}  */}

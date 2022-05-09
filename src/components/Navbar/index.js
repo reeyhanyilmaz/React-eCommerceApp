@@ -97,7 +97,7 @@ function Navbar() {
           </li>
 
           <li>
-            <Link to="/Products/AllProducts">Ürünler</Link>
+            <Link to="/Products">Ürünler</Link>
           </li>
         </ul>
       </div>

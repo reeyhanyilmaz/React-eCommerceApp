@@ -30,33 +30,49 @@ function Basket() {
   const { basketItems, setBasketItems, removeFromBasket, emptyBasket } =
     useBasket();
   const { user } = useAuth();
-  console.log(user);
+
+  console.log("basket user", user);
+
   //chakra'dan aldık
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef();
   const toast = useToast();
 
-  //sepette item'ı arttırıp azalmak icin.
-  const [count, setCount] = useState(1);
+  //toplama islemini yapacak func.
+  const total = basketItems.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
+
+  //sepetteki ürünleri arttırıp azaltmak icin.
+  const decrement = (item_id) => {
+    const newCount = basketItems.find((item) => item.id === item_id);
+    if (newCount.quantity !== 1) {
+      setBasketItems(
+        basketItems.map((item) =>
+          item.id === item_id
+            ? { ...newCount, quantity: newCount.quantity - 1 }
+            : item
+        )
+      );
+    }
+  };
 
   const increment = (item_id) => {
     const newCount = basketItems.find((item) => item.id === item_id);
     if (newCount) {
-      setCount(count + 1);
+      setBasketItems(
+        basketItems.map((item) =>
+          item.id === item_id
+            ? { ...newCount, quantity: newCount.quantity + 1 }
+            : item
+        )
+      );
     }
   };
 
-  const decrement = (item_id) => {
-    const newCount = basketItems.find((item) => item.id === item_id);
-    if (newCount) {
-      setCount(count > 1 ? count - 1 : count);
-    }
-  };
+  console.log("basketıtems", basketItems);
 
-  //toplama islemini yapacak func.
-  const total = basketItems.reduce((acc, item) => acc + count * item.price, 0);
-
-  console.log(basketItems);
   const handleSubmitForm = async (e) => {
     const input = {
       email: user.email,
@@ -116,19 +132,6 @@ function Basket() {
                   </Box>
 
                   <Box display="flex" flex-direction="row">
-                    {/* <Button onClick={() => setCount(count>1 ? count-1 : count)}>-</Button>
-                           {
-                              count >= 1 && ( <QuantityPicker value={count} onChange={setCount} min="1" smooth  width='8rem' /> )                                */}
-                    {/* }   */}
-
-                    {/* {basketItems.map((item) => item.id === id) && (
-                        <Button onClick={() => setCount(count - 1)}>-</Button>
-                      )}
-                      <Text fontSize="14">{count}</Text>
-                      {basketItems.map((item) => item.id === id) && (
-                        <Button onClick={() => setCount(count + 1)}>+</Button>
-                      )} */}
-
                     <Button onClick={() => decrement(item.id)}>-</Button>
 
                     <Text
@@ -137,14 +140,14 @@ function Basket() {
                       alignItems="center"
                       p="2"
                     >
-                      {count}
+                      {item.quantity}
                     </Text>
 
                     <Button onClick={() => increment(item.id)}>+</Button>
                   </Box>
 
                   <Box>
-                    <Text fontSize="17">{item.price * count}.0 $</Text>
+                    <Text fontSize="17">{item.price * item.quantity}.0 $</Text>
                   </Box>
 
                   <Box>

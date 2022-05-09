@@ -115,8 +115,8 @@ function Basket() {
                   <Box>
                     <Link to={`/product/${item.id}`}>
                       <Image
-                        width="100"
-                        height="100"
+                      width="100px"
+                        height="100px"
                         loading="lazy"
                         src={item.image}
                         alt="basket item"
@@ -124,14 +124,20 @@ function Basket() {
                     </Link>
                   </Box>
 
-                  <Box>
+                  <Box width="150px">
                     <Link to={`/product/${item.id}`}>
                       <Text fontSize="17">{item.title}</Text>
                       <Text fontSize="14">{item.description}</Text>
                     </Link>
-                  </Box>
+                  </Box>            
 
-                  <Box display="flex" flex-direction="row">
+                  <Box
+                    display="flex"
+                    flex-direction="row"
+                    border="solid 1px lightgray"
+                    borderRadius="8px"
+                    width="110px"
+                  >
                     <Button onClick={() => decrement(item.id)}>-</Button>
 
                     <Text
@@ -145,7 +151,7 @@ function Basket() {
 
                     <Button onClick={() => increment(item.id)}>+</Button>
                   </Box>
-
+                  {/* <QuantityPicker smooth min="1" width='8rem'/> */}
                   <Box>
                     <Text fontSize="17">{item.price * item.quantity}.0 $</Text>
                   </Box>

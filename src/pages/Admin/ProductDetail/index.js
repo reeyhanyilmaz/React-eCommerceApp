@@ -59,10 +59,10 @@ function ProductDetail() {
       <Formik
         initialValues={{
           //data verdik cünkü varsayılan olarak gelsin ve degisebilsin.
-          title: data.title,
-          description: data.description,
-          price: data.price,
-          image: data.image,
+          title: data[0].title,
+          description: data[0].description,
+          price: data[0].price,
+          image: data[0].image,
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}

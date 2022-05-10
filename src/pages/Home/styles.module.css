@@ -5,22 +5,27 @@ margin-top: 30px;
 
 }
 
-.enCokSatılanlar{
-    border: solid 3px #e0e0e0;
-    border-radius: 8px;
+.enCokSatılanlarBox{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-size: 30px;
     color: #4a5568;
     font-weight: bold;
+}
+
+.enCokSatılanlar{
+    border: solid 1px #e0e0e0;
+    border-radius: 8px;
+    padding: 40px;
 }
 
 .ozelFiyatlarBox{
     display: flex;
     flex-direction: row;
     height: 250px;
-    border: solid 3px #c0b9dd;
+    border: solid 1px #c0b9dd;
     border-radius: 8px;
 }
 

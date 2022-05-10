@@ -4,63 +4,42 @@ import { Box, Text, Grid } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import { IconButton } from "@chakra-ui/react";
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 function Home() {
-  const images = [
-    {
-      original:
-        "https://www.elislab.com.tr/wp-content/uploads/2020/01/laboratuvar-sarf-malzemeleri.jpg",
-      thumbnail:
-        "https://www.elislab.com.tr/wp-content/uploads/2020/01/laboratuvar-sarf-malzemeleri.jpg",
-      originalHeight: "500px"
-    },
-    {
-      original:
-        "https://tetralaboratuvar.com/wp-content/uploads/2021/03/Ozel-Laboratuvar.jpg",
-      thumbnail:
-        "https://tetralaboratuvar.com/wp-content/uploads/2021/03/Ozel-Laboratuvar.jpg",
-      originalHeight: "500px"
-    },
-    {
-      original:
-        "https://www.bilimeks.com.tr/wp-content/uploads/2020/01/labmalzzeme.jpg",
-      thumbnail:
-        "https://www.bilimeks.com.tr/wp-content/uploads/2020/01/labmalzzeme.jpg",
-      originalHeight: "500px"
-    },
-    {
-      original:
-        "https://www.sentezlab.com/class/INNOVAEditor/assets/laboratuvar%20cam%20malzemeleri.jpg",
-      thumbnail:
-        "https://www.sentezlab.com/class/INNOVAEditor/assets/laboratuvar%20cam%20malzemeleri.jpg",
-      originalHeight: "500px"
-    },
-    {
-      original:
-        "https://www.nasilbe.com/wp-content/uploads/2020/07/Laboratuvar-Malzemelerinin-isimleri-Nelerdir-1024x551.jpg",
-      thumbnail:
-        "https://www.nasilbe.com/wp-content/uploads/2020/07/Laboratuvar-Malzemelerinin-isimleri-Nelerdir-1024x551.jpg",
-      originalHeight: "500px"
-    },
-    {
-      original:
-        "https://www.kocar.com.tr/uploads/slider/images/000/000/049/medium",
-      thumbnail:
-        "https://www.kocar.com.tr/uploads/slider/images/000/000/049/medium",
-      originalHeight: "500px"
-    },
-  ];
-
   return (
-    <div className={styles.homePage}>
-      <Box className="homepage__image-gallery-box">
-        <ImageGallery
-          items={images}
-          thumbnailPosition="right"
-          showFullscreenButton={false}
-          useBrowserFullscreen={false}
-          autoPlay={true}
-        />
+    <div>
+      <Box className={styles.homePageCarousel}>
+        <Carousel
+          autoPlay="true"
+          emulateTouch="true"
+          infiniteLoop="true"
+          showArrows="true"
+          width="800px"
+        >
+          <div>
+            <img src="https://www.elislab.com.tr/wp-content/uploads/2020/01/laboratuvar-sarf-malzemeleri.jpg" />
+          </div>
+          <div>
+            <img src="https://www.sentezlab.com/class/INNOVAEditor/assets/laboratuvar%20cam%20malzemeleri.jpg" />
+          </div>
+          <div>
+            <img src="https://www.kocar.com.tr/uploads/slider/images/000/000/049/medium" />
+          </div>
+          <div>
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/000/419/993/small/ry2k_k4r5_180620.jpg" />
+          </div>
+          <div>
+            <img src="https://tetralaboratuvar.com/wp-content/uploads/2021/03/Ozel-Laboratuvar.jpg" />
+          </div>
+          <div>
+            <img src="https://microbenotes.com/wp-content/uploads/2020/05/Instruments-used-in-Microbiology-Lab-with-Principle-and-Uses.jpeg" />
+          </div>
+          <div>
+            <img src="https://www.nasilbe.com/wp-content/uploads/2020/07/Laboratuvar-Malzemelerinin-isimleri-Nelerdir-1024x551.jpg" />
+          </div>
+        </Carousel>
       </Box>
 
       <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="20">
@@ -95,12 +74,11 @@ function Home() {
       <Grid templateColumns="repeat(1, 1fr)" gap={6} mt="20">
         <Text fontSize="lg">
           En kaliteli ve hijyenik malzemelerden yapılan ChemDev Kimyasal
-          Malzemeleri ile  çalışmalarınızı en başarılı şekilde
-          gerçekleştirebileceksiniz. Yenilenen ürün yelpazemizi kaçırmamak
-          için bizi sosyal medya hesaplarımızdan takip edebilirsiniz.
-          Bizimle telefon ve mail yoluyla iletişime geçebilirsiniz.
+          Malzemeleri ile çalışmalarınızı en başarılı şekilde
+          gerçekleştirebileceksiniz. Yenilenen ürün yelpazemizi kaçırmamak için
+          bizi sosyal medya hesaplarımızdan takip edebilirsiniz. Bizimle telefon
+          ve mail yoluyla iletişime geçebilirsiniz.
         </Text>
-
 
         <IconButton
           variant="outline"
@@ -116,7 +94,6 @@ function Home() {
           aria-label="Call Segun"
           icon={<PhoneIcon />}
         />
-
       </Grid>
     </div>
   );

@@ -36,14 +36,6 @@ function Navbar() {
         <div className={styles.left}>
           <Link to="/">
             <img
-              src="/assets/logo.jpg"
-              alt="logo"
-              className={styles.logoImage}
-            />
-          </Link>
-
-          <Link to="/">
-            <img
               src="/assets/chemdevv.jpg"
               alt="chemdev"
               className={styles.logo}
@@ -131,7 +123,7 @@ function Navbar() {
                     <MenuDivider />
                     <Link to="/profile">
                       <MenuItem fontSize="16" mb="1">
-                        <a>Hesap Bilgilerim</a>
+                        <a href="#">Hesap Bilgilerim</a>
                       </MenuItem>
                     </Link>
 
@@ -139,13 +131,13 @@ function Navbar() {
                     {user?.role === "admin" && (
                       <Link to="/admin/orders">
                         <MenuItem fontSize="16" mb="1">
-                          <a>Admin</a>
+                          <a href="#">Admin</a>
                         </MenuItem>
                       </Link>
                     )}
 
                     <MenuItem fontSize="16" mb="1">
-                      <a onClick={handleLogout}>Çıkış Yap</a>
+                      <a href="#" onClick={handleLogout}>Çıkış Yap</a>
                     </MenuItem>
                   </MenuGroup>
                 </MenuList>

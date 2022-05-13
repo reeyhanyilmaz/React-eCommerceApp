@@ -23,13 +23,13 @@ function Footer() {
               <Text fontSize="lg" marginBottom={"3"}>ChemDev Kimyasal Satış</Text>
               <ul>
                 <li>
-                  <a>Biz Kimiz</a>
+                  <a href="#">Biz Kimiz</a>
                 </li>
                 <li>
-                  <a>Güvenli Alışveriş</a>
+                  <a href="#">Güvenli Alışveriş</a>
                 </li>
                 <li>
-                  <a>Sıkça Sorulan Sorular</a>
+                  <a href="#">Sıkça Sorulan Sorular</a>
                 </li>
               </ul>
             </Box>
@@ -61,7 +61,7 @@ function Footer() {
                 borderRadius="8px"
                 display="flex"
                 justifyContent="center"
-                width={"100%"}
+                width="100%"
               />
             </Box>
           </GridItem>
@@ -71,13 +71,13 @@ function Footer() {
               <Text fontSize="lg" marginBottom={"3"}>Yardım</Text>
               <ul>
                 <li>
-                  <a>Canlı Yardım</a>
+                  <a href="#">Canlı Yardım</a>
                 </li>
                 <li>
-                  <a>Nasıl İade Edebilirim</a>
+                  <a href="#">Nasıl İade Edebilirim</a>
                 </li>
                 <li>
-                  <a>Sıkça Sorulan Sorular</a>
+                  <a href="#">Sıkça Sorulan Sorular</a>
                 </li>
               </ul>
             </Box>

@@ -14,7 +14,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { BasketProvider } from "./contexts/BasketContext";
 
 //ant design
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 
 //sayfalar arası gezinirken prodocts'ı tekrar tekrar fecth etmesin diye yazdık.
 const queryClient = new QueryClient({

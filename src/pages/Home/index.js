@@ -9,15 +9,16 @@ import { Carousel } from "react-responsive-carousel";
 function Home() {
   return (
     <div>
-      <Grid templateColumns="repeat(8, 1fr)" gap={4} mt="3" mb="20">
+      <Grid templateColumns="repeat(8, 1fr)"  mt="3" mb="20">
         {/* <Box borderRadius="8px" width="100px" height="150px" mt="5" size="30px">
           <img src="/assets/logo.jpg" alt="logo" />
         </Box> */}
 
-        <Box  className={styles.grow} height="50px" width="100px">
+        <Box className={styles.grow} height="50px" width="100px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5yJb-W5ql6Gr34v--7KIOKFYZE13z196IFw&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -25,6 +26,7 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7TvFv26-q7KMK0o0VrW8HSvJloL56R99Dhg&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -32,6 +34,7 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbJr_suVyGoY7zcST_eqs4Bu_chZgOi0jlEA&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -39,6 +42,7 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoUZD777dUP8jf2_zbCvGqBwBuBG3oTeMBbw&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -46,6 +50,7 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdbWJ95Ka6ZB7kHYNeOcrwYdINEcrblEVbNw&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -53,6 +58,7 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSblLWaWJW6dn0pngwAKV0zyHTslLB4H4XfVw&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -60,6 +66,7 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTub-yeliCQld-pTEdDq08AJjeZT1C9nkAQew&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
 
@@ -67,17 +74,18 @@ function Home() {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2D8MrjnmzzDDHzZuFat_DIZDA0TBhetGAlQ&usqp=CAU"
             alt="icon"
+            className={styles.icon}
           />
         </Box>
       </Grid>
 
-      <Box className={styles.homePageCarousel}>
+      <Box className={styles.homePageCarouselBox}>
         <Carousel
           autoPlay="true"
           emulateTouch="true"
           infiniteLoop="true"
           showArrows="true"
-          width="800px"
+          className={styles.homePageCarousel}
         >
           <div>
             <img
@@ -132,15 +140,18 @@ function Home() {
         border="solid 1px #e0e0e0"
         borderRadius="8px"
         paddingTop="10px"
-        className={styles.grow}
+        className={styles.grow}       
       >
         <img
           src="http://sc04.alicdn.com/kf/HTB1zgqmhlmWBuNkSndV763sApXal.png"
           alt="homeImage"
+          className={styles.encokSatılanlarImage}
+         
         />
         <img
           src="https://www.nukleonlab.com.tr/images/urunler/Pipet-ucu-780.jpg"
-          alt="homeImage"
+          alt="homeImage"  
+          className={styles.encokSatılanlarImage}      
         />
         <Box className={styles.enCokSatılanlarBox}>
           <Text
@@ -170,9 +181,9 @@ function Home() {
         />
       </Box>
 
-      <Grid templateColumns="repeat(2, 1fr)" gap={6} mt="20">
+      <Grid templateColumns="repeat(2, 1fr)" gap={6} mt="20" className={styles.explanationContact}>
         <Box>
-          <Text fontSize="lg">
+          <Text fontSize="lg" className={styles.explanation}>
             En kaliteli ve hijyenik malzemelerden yapılan ChemDev Kimyasal
             Malzemeleri ile çalışmalarınızı en başarılı şekilde
             gerçekleştirebileceksiniz. Yenilenen ürün yelpazemizi kaçırmamak
@@ -188,7 +199,7 @@ function Home() {
             color="#84A59D"
             aria-label="Send email"
             icon={<EmailIcon />}
-            width="500px"
+            className={styles.contactPart}
           />
 
           <br />
@@ -198,7 +209,7 @@ function Home() {
             color="white"
             aria-label="Call Segun"
             icon={<PhoneIcon />}
-            width="500px"
+            className={styles.contactPart}
           />
         </Box>
       </Grid>

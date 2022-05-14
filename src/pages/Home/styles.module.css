@@ -1,48 +1,70 @@
-.homePageCarousel{
-display: flex;
-justify-content: center;
-margin-top: 30px;
-
+.grow img {
+  transition: 1s ease;
+  cursor: pointer;
 }
 
-.enCokSatılanlarBox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 30px;
-    color: #4a5568;
-    font-weight: bold;
+.grow img:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 1s ease;
 }
 
-.enCokSatılanlar{
-    border: solid 1px #e0e0e0;
-    border-radius: 8px;
-    padding: 40px;
+.homePageCarousel {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.ozelFiyatlarBox{
-    display: flex;
-    flex-direction: row;
-    height: 250px;
-    border: solid 1px #c0b9dd;
-    border-radius: 8px;
+.enCokSatılanlarBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 30px;
+  color: #4a5568;
+  font-weight: bold;
 }
 
-.ozelFiyatlar{
-    background-color: #c0b9dd;
-    color: white;
-    font-weight: bold;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    height: 100%;
-    margin-top: 0;
+.enCokSatılanlar {
+  border: solid 1px #e0e0e0;
+  border-radius: 8px;
+  padding: 40px;
 }
 
-.ozelFiyatlarImage{
-    width: 40%;
+.ozelFiyatlarBox {
+  display: flex;
+  flex-direction: row;
+  height: 250px;
+  border: solid 1px #c0b9dd;
+  border-radius: 8px;
 }
 
+.ozelFiyatlarBox img{
+  transition: 1s ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.ozelFiyatlarBox img:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 1s ease;
+}
+
+.ozelFiyatlar {
+  background-color: #c0b9dd;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  margin-top: 0;
+}
+
+.ozelFiyatlarImage {
+  width: 40%;
+}

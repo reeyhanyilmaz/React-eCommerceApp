@@ -53,7 +53,12 @@ function Navbar() {
 
             <li>
               <Menu closeOnSelect={true} autoSelect={true}>
-                <MenuButton as={Button} color="#4a5568" variant="outline">
+                <MenuButton
+                  as={Button}
+                  color="#4a5568"
+                  variant="outline"
+                  className={styles.menuButton}
+                >
                   Kategoriler
                 </MenuButton>
                 <MenuList minWidth="240px">
@@ -137,7 +142,9 @@ function Navbar() {
                     )}
 
                     <MenuItem fontSize="16" mb="1">
-                      <a href="#" onClick={handleLogout}>Çıkış Yap</a>
+                      <a href="#" onClick={handleLogout}>
+                        Çıkış Yap
+                      </a>
                     </MenuItem>
                   </MenuGroup>
                 </MenuList>

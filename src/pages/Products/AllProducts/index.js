@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 import { Grid, Box, Input, Text } from "@chakra-ui/react";
 import Card from "../../../components/Card";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import {fetchProductNonePageLimit} from "../../../api";
+import { fetchProductNonePageLimit } from "../../../api";
 
 function AllProducts() {
-
-     //tüm verileri çekiyoruz.
+  //tüm verileri çekiyoruz.
   const { data } = useQuery("products", fetchProductNonePageLimit);
 
   //filtrelem islemi yapmak icin
@@ -25,7 +24,7 @@ function AllProducts() {
 
   return (
     <div>
-         {/* ürünler ve filtreleme yapılan input kısmı */}
+      {/* ürünler ve filtreleme yapılan input kısmı */}
       <Input
         variant="filled"
         placeholder="Aramak istediğiniz anahtar kelimeyi yazınız.."
@@ -38,7 +37,7 @@ function AllProducts() {
       {/* {filteredData.length >0 ? <Text> Toplam filtrelenen ürün sayısı: ({filteredData.length} )</Text> : <Text> Filtreleme sonucu ürün bulunamadı.</Text>}  */}
 
       {filteredData ? (
-        <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+        <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
           {filteredData &&
             filteredData.map((item, i) => (
               <Box w="100%" key={i}>
@@ -47,7 +46,7 @@ function AllProducts() {
             ))}
         </Grid>
       ) : (
-        <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+        <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
           {data &&
             data.map((item, i) => (
               <Box w="100%" key={i}>
@@ -57,7 +56,7 @@ function AllProducts() {
         </Grid>
       )}
     </div>
-  )
+  );
 }
 
 export default AllProducts;

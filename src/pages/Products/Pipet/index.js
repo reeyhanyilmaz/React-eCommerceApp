@@ -32,7 +32,7 @@ function Pipet() {
   return (
     <div>
       {/* Gap arasındaki boslukları belirler, repeat ekranda kaç tane card görünmesini istiyorsak. */}
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+      <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
         {/* ic ice map yaptık cünkü pageparam icinde pages oldugu icin. Group group yani. */}
         {data.pages.map((group, i) => (
           <React.Fragment key={i}>

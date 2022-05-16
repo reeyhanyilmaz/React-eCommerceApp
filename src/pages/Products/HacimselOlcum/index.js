@@ -4,6 +4,7 @@ import Card from "../../../components/Card";
 import { useInfiniteQuery } from "react-query";
 //useQuery bize sade API çağrımları saglar. örn: loading, error icin state tanımları yapmamız gerekirdi. useQuery ile hazır alabiliyoruz.
 import { fetchHacimselOlcum } from "../../../api";
+import { useEffect} from "react";
 
 function HacimselOlcum() {
   //useInfinityQuery daha fazla sayfa yüklemesi icin.
@@ -25,6 +26,12 @@ function HacimselOlcum() {
     },
   });
 
+
+  useEffect(() => {
+    fetchHacimselOlcum();
+  }, []);
+
+
   if (status === "loading") return "Loading...";
 
   if (status === "error") return "An error has occurred: " + error.message;
@@ -34,9 +41,9 @@ function HacimselOlcum() {
       {/* Gap arasındaki boslukları belirler, repeat ekranda kaç tane card görünmesini istiyorsak. */}
       <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
         {/* ic ice map yaptık cünkü pageparam icinde pages oldugu icin. Group group yani. */}
-        {data.pages.map((group, i) => (
+        { data.pages && data.pages.map((group, i) => (
           <React.Fragment key={i}>
-            {group.map((item) => (
+            {group && group.map((item) => (
               <Box w="100%" key={item.id}>
                 <Card item={item} />
               </Box>

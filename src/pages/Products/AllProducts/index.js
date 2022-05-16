@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Box, Input, Text } from "@chakra-ui/react";
 import Card from "../../../components/Card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { fetchProductNonePageLimit } from "../../../api";
 
@@ -21,6 +21,10 @@ function AllProducts() {
     });
     setFilteredData(filteredData);
   };
+
+  useEffect(() => {
+    fetchProductNonePageLimit();
+  }, []);
 
   return (
     <div>

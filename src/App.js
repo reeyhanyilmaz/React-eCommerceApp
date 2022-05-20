@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <Navbar />
 
       <div id="content">

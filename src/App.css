@@ -6,7 +6,7 @@
 
 #content {
   padding: 15px;
-  min-height: 500px;
+  min-height: 500px; /*flex 1'i engelliyordu*/
   display: flex;
   justify-content: center;
   flex: 1; /*Bu flex child kalan boşluğu doldursun*/

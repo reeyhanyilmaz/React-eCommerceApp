@@ -9,12 +9,12 @@ import { Carousel } from "react-responsive-carousel";
 function Home() {
   return (
     <div>
-      <Grid templateColumns="repeat(8, 1fr)"  mt="3" mb="20">
+      <Grid templateColumns="repeat(8, 1fr)"  mt="3" mb="20" className={styles.iconContainer}>
         {/* <Box borderRadius="8px" width="100px" height="150px" mt="5" size="30px">
           <img src="/assets/logo.jpg" alt="logo" />
         </Box> */}
 
-        <Box className={styles.grow} height="50px" width="100px">
+        <Box className={styles.grow} height="50px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5yJb-W5ql6Gr34v--7KIOKFYZE13z196IFw&usqp=CAU"
             alt="icon"
@@ -22,7 +22,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow} height="70px" width="100px">
+        <Box className={styles.grow} height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7TvFv26-q7KMK0o0VrW8HSvJloL56R99Dhg&usqp=CAU"
             alt="icon"
@@ -30,7 +30,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow } height="70px" width="100px">
+        <Box className={styles.grow } height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbJr_suVyGoY7zcST_eqs4Bu_chZgOi0jlEA&usqp=CAU"
             alt="icon"
@@ -38,7 +38,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow} height="70px" width="100px">
+        <Box className={styles.grow} height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoUZD777dUP8jf2_zbCvGqBwBuBG3oTeMBbw&usqp=CAU"
             alt="icon"
@@ -46,7 +46,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow} height="70px" width="100px">
+        <Box className={styles.grow} height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdbWJ95Ka6ZB7kHYNeOcrwYdINEcrblEVbNw&usqp=CAU"
             alt="icon"
@@ -54,7 +54,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow} height="70px" width="100px">
+        <Box className={styles.grow} height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSblLWaWJW6dn0pngwAKV0zyHTslLB4H4XfVw&usqp=CAU"
             alt="icon"
@@ -62,7 +62,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow} height="70px" width="100px">
+        <Box className={styles.grow} height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTub-yeliCQld-pTEdDq08AJjeZT1C9nkAQew&usqp=CAU"
             alt="icon"
@@ -70,7 +70,7 @@ function Home() {
           />
         </Box>
 
-        <Box className={styles.grow} height="70px" width="100px">
+        <Box className={styles.grow} height="70px" width="90px">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2D8MrjnmzzDDHzZuFat_DIZDA0TBhetGAlQ&usqp=CAU"
             alt="icon"

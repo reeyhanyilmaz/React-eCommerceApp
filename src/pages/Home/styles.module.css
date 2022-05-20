@@ -1,3 +1,6 @@
+.iconContainer {
+  justify-items: center !important;
+}
 .explanationContact {
   margin-bottom: 2rem;
 }
@@ -5,10 +8,17 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+.contactPart {
+  width: 300px !important;
+  margin: 0 auto;
 }
 .grow img {
   transition: 1s ease;
   cursor: pointer;
+  margin: 0 auto; /*yatay olarak ortaladım*/
 }
 
 .grow img:hover {
@@ -81,16 +91,7 @@
   width: 40%;
 }
 
-.contactPart {
-  width: 500px;
-}
-
 @media only screen and (max-width: 390px) {
-  .icon {
-    display: none;
-    margin-bottom: 0;
-  }
-
   .homePageCarousel {
     margin-top: 0;
     width: 300px;
@@ -106,6 +107,7 @@
 
   .ozelFiyatlar {
     width: 40%;
+    padding: 0 0.5rem;
   }
 
   .ozelFiyatlarImage {
@@ -114,26 +116,14 @@
 
   .ozelFiyatlar Button {
     font-size: 13px;
-    width: 70%;
   }
 
   .explanationContact {
     grid-template-columns: 1fr !important;
   }
-
-  .explanation {
-    font-size: 10px;
-  }
-  .contactPart {
-    width: 350px;
-  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 820px) {
-  .icon {
-    width: 60px;
-    height: 70px;
-  }
   .homePageCarousel {
     width: 600px;
   }
@@ -156,17 +146,8 @@
     width: 70%;
   }
 
-  .explanationContact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   .explanation {
     font-size: 18px;
-  }
-  .contactPart {
-    width: 800px;
   }
 }
 
@@ -174,26 +155,12 @@
   .explanationContact {
     grid-template-columns: 1fr !important;
   }
-  .explanationContact__buttonBox {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+  .iconContainer {
+    grid-template-columns: repeat(4, 1fr) !important;
+    row-gap: 1rem;
   }
-  .contactPart {
-    max-width: 300px;
-  }
-}
-@media screen and (min-width: 800px) {
-  .explanationContact__buttonBox {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
-  .contactPart {
-    max-width: 300px;
+  .iconContainer .icon {
+    width: 60px;
+    height: 65px;
   }
 }

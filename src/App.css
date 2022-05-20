@@ -19,7 +19,7 @@
 
 /*scroll button*/
 .back-to-top {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   right: 20px;
   font-size: 17px;

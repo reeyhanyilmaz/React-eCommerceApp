@@ -182,7 +182,7 @@ function Home() {
       </Box>
 
       <Grid templateColumns="repeat(2, 1fr)" gap={6} mt="20" className={styles.explanationContact}>
-        <Box>
+        <Box className={styles.explanationContact__textBox}>
           <Text fontSize="lg" className={styles.explanation}>
             En kaliteli ve hijyenik malzemelerden yapılan ChemDev Kimyasal
             Malzemeleri ile çalışmalarınızı en başarılı şekilde
@@ -192,7 +192,7 @@ function Home() {
           </Text>
         </Box>
 
-        <Box>
+        <Box className={styles.explanationContact__buttonBox}>
           <IconButton
             variant="outline"
             variantColor="#84A59D"

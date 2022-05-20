@@ -1,3 +1,11 @@
+.explanationContact {
+  margin-bottom: 2rem;
+}
+.explanationContact__buttonBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .grow img {
   transition: 1s ease;
   cursor: pointer;
@@ -110,8 +118,7 @@
   }
 
   .explanationContact {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr !important;
   }
 
   .explanation {
@@ -123,8 +130,7 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 820px) {
-
-  .icon{
+  .icon {
     width: 60px;
     height: 70px;
   }
@@ -135,8 +141,7 @@
   .encokSatılanlarImage {
     width: 240px;
     height: 350px;
-
-  } 
+  }
 
   .ozelFiyatlar {
     width: 40%;
@@ -162,5 +167,33 @@
   }
   .contactPart {
     width: 800px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .explanationContact {
+    grid-template-columns: 1fr !important;
+  }
+  .explanationContact__buttonBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .contactPart {
+    max-width: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .explanationContact__buttonBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .contactPart {
+    max-width: 300px;
   }
 }

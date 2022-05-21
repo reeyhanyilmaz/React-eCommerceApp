@@ -26,20 +26,19 @@ export const postProduct = async (input) => {
 };
 
 //tüm kategoriler sekmesinden gelecek API'lar
-export const fetchCamMalzeme = async ({ pageParam = 1 }) => {
+export const fetchCamMalzeme = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products`);
     const camMalzeme = data.filter(product => product.category === 1);
     return camMalzeme;
 };
 
-export const fetchPipet = async ({ pageParam = 1 }) => {
+export const fetchPipet = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products`);
     const pipet = data.filter(product => product.category === 2);
     return pipet;
 };
 
-
-export const fetchHacimselOlcum = async ({ pageParam = 1 }) => {
+export const fetchHacimselOlcum = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_BASE_ENDPOINT}/products`);
     const hacimselOlcum = data.filter(product => product.category === 3);
     return hacimselOlcum;

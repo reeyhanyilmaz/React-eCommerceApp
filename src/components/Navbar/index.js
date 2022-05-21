@@ -9,8 +9,6 @@ import {
   MenuItem,
   MenuDivider,
   MenuGroup,
-  MenuItemOption,
-  MenuOptionGroup,
 } from "@chakra-ui/react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useBasket } from "../../contexts/BasketContext";
@@ -43,16 +41,10 @@ function Navbar() {
           </Link>
 
           <ul className={styles.menu}>
+            <li><Link to="/">Ana Sayfa</Link></li>
+            <li><Link to="/Products/AllProducts">Ürünler</Link></li>
             <li>
-              <Link to="/">Ana Sayfa</Link>
-            </li>
-
-            <li>
-              <Link to="/Products/AllProducts">Ürünler</Link>
-            </li>
-
-            <li>
-              <Menu closeOnSelect={true} autoSelect={true}>
+              <Menu>
                 <MenuButton
                   as={Button}
                   color="#4a5568"
@@ -62,27 +54,10 @@ function Navbar() {
                   Kategoriler
                 </MenuButton>
                 <MenuList minWidth="240px">
-                  <MenuOptionGroup defaultValue="asc" type="radio">
-                    <MenuItemOption value="desc">
-                      <Link to="/Products/CamMalzeme">Cam Malzeme</Link>
-                    </MenuItemOption>
-
-                    <MenuItemOption value="desc">
-                      <Link to="/Products/HacimselOlcum">Hacimsel Ölçüm</Link>
-                    </MenuItemOption>
-
-                    <MenuItemOption value="desc">
-                      <Link to="/Products/Pipet">
-                        Otomatik Pipet & Pipet Uçları
-                      </Link>
-                    </MenuItemOption>
-
-                    <MenuItemOption value="asc">
-                      <Link to="/Products/LaboratuvarCihazlari">
-                        Laboratuvar Cihazları
-                      </Link>
-                    </MenuItemOption>
-                  </MenuOptionGroup>
+                  <MenuItem><Link to="/Products/CamMalzeme">Cam Malzeme</Link></MenuItem>
+                  <MenuItem><Link to="/Products/HacimselOlcum">Hacimsel Ölçüm</Link></MenuItem>
+                  <MenuItem><Link to="/Products/Pipet">Otomatik Pipet & Pipet Uçları</Link></MenuItem>
+                  <MenuItem> <Link to="/Products/LaboratuvarCihazlari">Laboratuvar Cihazları</Link></MenuItem>
                 </MenuList>
               </Menu>
             </li>

@@ -1,10 +1,8 @@
-import React from "react";
-import { Grid, Box, Input, Text, Flex, Button } from "@chakra-ui/react";
-import Card from "../../../components/Card";
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
-import { fetchProductList, fetchProductNonePageLimit } from "../../../api";
+import React,{ useState, useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
+import { Grid, Box, Input, Flex, Button } from "@chakra-ui/react";
+import Card from "../../../components/Card";
+import { fetchProductList, fetchProductNonePageLimit } from "../../../api";
 
 function AllProducts() {
   const {
@@ -27,37 +25,29 @@ function AllProducts() {
 
   const [search, setSearch] = useState("");
   const [allProductsArray, setAllProductsArray] = useState([]); //tüm ürünleri burada
-  const [filteredData, setFilteredData] = useState(data); // input değiştikçe filtrelenmiş ürünleri array olarak tutuyorum
+  const [filteredData, setFilteredData] = useState([]); // input değiştikçe filtrelenmiş ürünleri array olarak tutuyorum
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const initialData = await fetchProductNonePageLimit();
-  //     setAllProductsArray(initialData);
-  //   })();
-  //   setFilteredData(data);
-  // }, []);
+  // filtrelerken tüm product'lar içinden filtreleme yapması için tüm product'ları tek bir array olarak çektim, çünkü infinitequery sayfa sayfa çekiyordu.
+  useEffect(() => {
+    (async () => {
+      const initialData = await fetchProductNonePageLimit();
+      setAllProductsArray(initialData);
+    })();
+  }, []);
 
-  // useEffect(() => {
-  //   console.log("filteredData", filteredData);
-  //   console.log("allProductsArray", allProductsArray);
-  // }, [filteredData]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
-    // if (e.target.value === "") {
-    //   setAllProductsArray(data);
-    // } else {
-      const newFilter = data.filter((item) => {
-       
-        return item.description
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase());
-      });
-      setFilteredData(newFilter);
-    // }
+    // arama yapınca filtrelemeyi tüm product'lardan yapsın diye allProductsArray'i filtreledim.
+    const newFilter = allProductsArray.filter((item) => {
+      return item.description
+        .toLowerCase()
+        .includes(e.target.value.toLowerCase());
+    });
+    setFilteredData(newFilter);
   };
 
-  console.log("data", data);
+
   if (status === "loading") return "Loading...";
   if (status === "error") return "An error has occurred: " + error.message;
 
@@ -75,7 +65,7 @@ function AllProducts() {
 
       {/* {filteredData.length >0 ? <Text> Toplam filtrelenen ürün sayısı: ({filteredData.length} )</Text> : <Text> Filtreleme sonucu ürün bulunamadı.</Text>}  */}
 
-      {search !== "" ? 
+      {search !== "" ?
         <Grid templateColumns="repeat(4, 1fr)" gap={6}>
           {filteredData &&
             filteredData.map((item, i) => (
@@ -84,7 +74,7 @@ function AllProducts() {
               </Box>
             ))}
         </Grid>
-       : 
+        :
         <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
           {/* ic ice map yaptık cünkü pageparam icinde pages oldugu icin. Group group yani. */}
           {data.pages &&
@@ -98,27 +88,27 @@ function AllProducts() {
                   ))}
               </React.Fragment>
             ))}
-        </Grid>        
+        </Grid>
       }
 
       {/* diger sayfaları yükleyebilmemiz icin */}
       {search === "" && (
-      <Flex mt="10" justifyContent="center">
-        <Button
-          color="#4a5568;"
-          onClick={() => fetchNextPage()}
-          isLoading={isFetchingNextPage}
-          disabled={!hasNextPage || isFetchingNextPage}
-        >
-          {isFetchingNextPage
-            ? "Loading more..."
-            : hasNextPage
-            ? "Daha fazla"
-            : "Daha fazla ürün yüklenemedi"}
-        </Button>
-      </Flex> 
+        <Flex mt="10" justifyContent="center">
+          <Button
+            color="#4a5568;"
+            onClick={() => fetchNextPage()}
+            isLoading={isFetchingNextPage}
+            disabled={!hasNextPage || isFetchingNextPage}
+          >
+            {isFetchingNextPage
+              ? "Loading more..."
+              : hasNextPage
+                ? "Daha fazla"
+                : "Daha fazla ürün yüklenemedi"}
+          </Button>
+        </Flex>
       )}
-      
+
     </div>
   );
 }

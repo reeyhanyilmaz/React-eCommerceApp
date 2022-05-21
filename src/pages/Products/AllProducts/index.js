@@ -6,32 +6,39 @@ import { useQuery } from "react-query";
 import { fetchProductNonePageLimit } from "../../../api";
 
 function AllProducts() {
-  //tüm verileri çekiyoruz.
-  const { data } = useQuery("products", fetchProductNonePageLimit);
-
-  //filtrelem islemi yapmak icin
   const [search, setSearch] = useState("");
-  const [filteredData, setFilteredData] = useState(data);
+  const [allProductsArray, setAllProductsArray] = useState([]); //tüm ürünleri burada
+  const [filteredData, setFilteredData] = useState([]); // input değiştikçe filtrelenmiş ürünleri array olarak tutuyorum
+
+  useEffect(() => {
+    (async () => {
+      const initialData = await fetchProductNonePageLimit();
+      setAllProductsArray(initialData);
+      setFilteredData(initialData); //henüz arama inputu boş olduğu için filtrelenmiş ürünler aslında tüm ürünler
+    })();
+  }, [])
+
+
   const handleSearch = (e) => {
     setSearch(e.target.value);
-    const filteredData = data.filter((item) => {
+    const newDataArray = allProductsArray.filter((item) => {
       return item.description
         .toLowerCase()
         .includes(e.target.value.toLowerCase());
     });
-    setFilteredData(filteredData);
+    setFilteredData(newDataArray);
   };
 
-  useEffect(() => {
-    fetchProductNonePageLimit();
-  }, []);
+  if (allProductsArray === []) {
+    return <h1>Loading....</h1>
+  }
 
   return (
     <div>
       {/* ürünler ve filtreleme yapılan input kısmı */}
       <Input
         variant="filled"
-        placeholder="Aramak istediğiniz anahtar kelimeyi yazınız.."
+        placeholder="Aramak istediğiniz ürünü yazınız.."
         _placeholder={{ opacity: 1, color: "gray.500" }}
         value={search}
         onChange={handleSearch}
@@ -40,27 +47,15 @@ function AllProducts() {
 
       {/* {filteredData.length >0 ? <Text> Toplam filtrelenen ürün sayısı: ({filteredData.length} )</Text> : <Text> Filtreleme sonucu ürün bulunamadı.</Text>}  */}
 
-      {filteredData ? (
-        <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
-          {filteredData &&
-            filteredData.map((item, i) => (
-              <Box w="100%" key={i}>
-                <Card item={item} />
-              </Box>
-            ))}
-        </Grid>
-      ) : (
-        <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
-          {data &&
-            data.map((item, i) => (
-              <Box w="100%" key={i}>
-                <Card item={item} />
-              </Box>
-            ))}
-        </Grid>
-      )}
+      <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
+        {filteredData.map((item, i) => (
+          <Box w="100%" key={i}>
+            <Card item={item} />
+          </Box>
+        ))}
+      </Grid>
     </div>
-  );
+  )
 }
 
 export default AllProducts;

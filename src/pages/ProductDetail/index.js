@@ -6,20 +6,20 @@ import ImageGallery from "react-image-gallery";
 import { useBasket } from "../../contexts/BasketContext";
 
 function ProductDetail() {
-  const { id } = useParams();
+  const { id } = useParams(); //APIdan gelecek id.
   const { addToBasket, basketItems } = useBasket();
-
-  const { isLoading, error, data } = useQuery(["product", id], () =>
+  const { isLoading, isError, data } = useQuery(["product", id], () =>
+    //product key birden fazla olabileceği için id ile ayrıştırıyoruz.
     fetchProduct(id)
   );
 
   if (isLoading) return "Loading...";
+  if (isError) return "An error has occurred: " + isError.message;
 
-  if (error) return "An error has occurred: " + error.message;
-
-  const findBasketItems = basketItems.find((item) => item.id === data.id);
-
+  const findBasketItems = basketItems.find((item) => item.id === data[0].id);
   const images = data[0].image.map((url) => ({ original: url }));
+
+  console.log(data);
 
   return (
     <div>
@@ -35,10 +35,10 @@ function ProductDetail() {
 
       {/* butona tıklayınca sepete ekleyecek, data API'dan gelen data. */}
       <Button
-        backgroundColor={findBasketItems ? "#cab1bd" : "#b5c9c3"}
+        backgroundColor={findBasketItems ? "#c0b9dd" : "#84A59D"}
         color="white"
         mt="1"
-        onClick={() => addToBasket(data, findBasketItems)}
+        onClick={() => addToBasket(data[0], findBasketItems)}
       >
         {findBasketItems ? "Sepetten kaldır" : "Sepete Ekle"}
       </Button>

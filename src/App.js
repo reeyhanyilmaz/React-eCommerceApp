@@ -45,13 +45,7 @@ function App() {
         <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-
-          <Route path="/products/*" element={
-            <ProtectedRoute>
-            <Products />
-          </ProtectedRoute>          
-          } />
-
+          <Route path="/products/*" element={ <Products /> } />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />

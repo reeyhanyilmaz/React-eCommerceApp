@@ -41,8 +41,12 @@ function Navbar() {
           </Link>
 
           <ul className={styles.menu}>
-            <li><Link to="/">Ana Sayfa</Link></li>
-            <li><Link to="/Products/AllProducts">Ürünler</Link></li>
+            <li>
+              <Link to="/">Ana Sayfa</Link>
+            </li>
+            <li>
+              <Link to="/Products/AllProducts">Ürünler</Link>
+            </li>
             <li>
               <Menu>
                 <MenuButton
@@ -54,10 +58,23 @@ function Navbar() {
                   Kategoriler
                 </MenuButton>
                 <MenuList minWidth="240px">
-                  <MenuItem><Link to="/Products/CamMalzeme">Cam Malzeme</Link></MenuItem>
-                  <MenuItem><Link to="/Products/HacimselOlcum">Hacimsel Ölçüm</Link></MenuItem>
-                  <MenuItem><Link to="/Products/Pipet">Otomatik Pipet & Pipet Uçları</Link></MenuItem>
-                  <MenuItem> <Link to="/Products/LaboratuvarCihazlari">Laboratuvar Cihazları</Link></MenuItem>
+                  <MenuItem>
+                    <Link to="/Products/CamMalzeme">Cam Malzeme</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="/Products/HacimselOlcum">Hacimsel Ölçüm</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="/Products/Pipet">
+                      Otomatik Pipet & Pipet Uçları
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    {" "}
+                    <Link to="/Products/LaboratuvarCihazlari">
+                      Laboratuvar Cihazları
+                    </Link>
+                  </MenuItem>
                 </MenuList>
               </Menu>
             </li>
@@ -82,18 +99,17 @@ function Navbar() {
             </>
           )}
 
+          
+            <Link to="/basket">
+              <Button color="#4a5568" variant="outline">
+                Sepetim {basketItems.length > 0 && `${basketItems.length}`}
+              </Button>
+            </Link>
+         
+
           {/* kullanıcı girisi varsa profile gidecek */}
           {loggedIn && (
             <>
-              {/* giris yapılmıssa sepetteki ürünleri göstermek icin */}
-              {basketItems.length > 0 && (
-                <Link to="/basket">
-                  <Button color="#4a5568" variant="outline">
-                    Sepetim {basketItems.length}
-                  </Button>
-                </Link>
-              )}
-
               <Menu>
                 <MenuButton as={Button} ml="1" color="#4a5568" p="5">
                   Profil

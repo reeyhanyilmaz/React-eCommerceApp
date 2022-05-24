@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { Grid, Box, Text, GridItem } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { Button, VStack, Divider } from "@chakra-ui/react";
-import { WhatsappIcon } from "react-share";
+// import { WhatsappIcon } from "react-share";
 
 function Footer() {
   return (
@@ -55,14 +55,14 @@ function Footer() {
             <Box>
               <Text marginBottom={"3"} fontSize="lg">WhatsApp Destek</Text>
               <Text fontSize="2xl"> 0850 000 00 00 </Text>
-              <WhatsappIcon
+              {/* <WhatsappIcon
                 size={35}
                 round={false}
                 borderRadius="8px"
                 display="flex"
                 justifyContent="center"
                 width="100%"
-              />
+              /> */}
             </Box>
           </GridItem>
 

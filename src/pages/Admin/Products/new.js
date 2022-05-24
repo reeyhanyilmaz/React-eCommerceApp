@@ -27,10 +27,7 @@ function NewProduct() {
     console.log(values);
     message.loading({ content: "Yükleniyor...", key: "product_update" });
 
-// imaege string olmalı diye konsolda error verdigi icin string'e cevirmek icin
-    // values.image = JSON.stringify(values.image);
-
-    const newValues = {...values, image: JSON.stringify(values.image)};
+    const newValues = {...values, image: values.image};
 
     newProductMutation.mutate(newValues, {
       onSuccess: () => {
@@ -51,10 +48,12 @@ function NewProduct() {
 
       <Formik
         initialValues={{
-          title: "Test",
-          description: "Lorem ipsum",
-          price: "100",
+          title: "",
+          description: "",
+          price: "",
           image: [],
+          category: "",
+          quantity: 1,
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -105,6 +104,7 @@ function NewProduct() {
                   <FormControl mt="4">
                     <FormLabel>Fiyat</FormLabel>
                     <Input
+                      placeholder="$"
                       name="price"
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -118,6 +118,22 @@ function NewProduct() {
                   </FormControl>
 
                   <FormControl mt="4">
+                    <FormLabel>Kategori</FormLabel>
+                    <Input
+                      placeholder={"1:Cam Malzeme, 2: Hacimsel Ölçüm , 3: Pipet, 4: Laboratuvar Malzemeleri"}
+                      name="category"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.category}
+                      disabled={isSubmitting}
+                      isInvalid={touched.category && errors.category}
+                    />
+                    {touched.category && errors.category && (
+                      <Text color="red.500">{errors.category}</Text>
+                    )}
+                  </FormControl>
+
+                  <FormControl mt="4">
                     <FormLabel>Fotoğraf</FormLabel>
                     <FieldArray
                       name="image"
@@ -127,6 +143,7 @@ function NewProduct() {
                             values.image.map((images, index) => (
                               <div key={index}>
                                 <Input
+                                  placeholder="https://picsum.photos/200/300"
                                   name={`image.${index}`}
                                   value={images}
                                   disabled={isSubmitting}

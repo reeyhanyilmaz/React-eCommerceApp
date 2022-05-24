@@ -31,6 +31,3 @@ pipet.json
 users.json
 login.json
 order.json
-
-yarn.lock
-package-lock.json

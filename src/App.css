@@ -20,8 +20,8 @@
 /*scroll button*/
 .back-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 33px;
+  right: 100px;
   font-size: 17px;
   background: #c0b9dd;
   color: white;

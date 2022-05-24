@@ -94,10 +94,8 @@ function Signin() {
                 Giriş Yap
               </Button>
             </form>
-
           </Box>
         </Box>
-
       </Flex>
       </div>
   )

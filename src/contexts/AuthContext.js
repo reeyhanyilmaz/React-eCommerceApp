@@ -33,15 +33,6 @@ const AuthProvider = ({ children }) => {
   const login = (data) => {
     setLoggedIn(true);
 
-    // setUser((user, data) =>{
-
-    //     if(user?.role === "admin"){
-    //         return data[0];
-    //     }
-    //     if (user?.role === "user") {
-    //         return data;
-    //     }
-    // });
     setUser(data);
 
     localStorage.setItem("loginData", JSON.stringify(data));

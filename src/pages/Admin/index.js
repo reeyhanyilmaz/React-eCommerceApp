@@ -14,10 +14,6 @@ function Admin() {
     <div>
         <nav>
             <ul className='admin-menu'>
-                {/* <li>
-                    <NavLink to="/admin">Ana Sayfa</NavLink>
-                </li> */}
-
                 <li>
                     <NavLink to="/admin/orders">
                         <Button color="white" backgroundColor="#c0b9dd">Siparişler</Button>
@@ -34,7 +30,6 @@ function Admin() {
 
         <Box mt="2">
             <Routes>
-                {/* <Route  path="/" element={<Home />} /> */}
                 <Route  path="orders" element={<Orders/>} />
                 <Route  path="products" element={<Products/>} />
                 <Route  path="products/new" element={<NewProduct />} />

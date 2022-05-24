@@ -39,7 +39,6 @@ root.render(
             </BasketProvider>
           </AuthProvider>
         </ChakraProvider>
-
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </React.StrictMode>

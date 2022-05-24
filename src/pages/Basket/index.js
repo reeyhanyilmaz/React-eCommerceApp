@@ -23,7 +23,6 @@ import {
 import { Link } from "react-router-dom";
 import { postOrder } from "../../api";
 import { useAuth } from "../../contexts/AuthContext";
-import { QuantityPicker } from "react-qty-picker";
 
 function Basket() {
   const [address, setAddress] = useState("");
@@ -151,7 +150,6 @@ function Basket() {
 
                     <Button onClick={() => increment(item.id)}>+</Button>
                   </Box>
-                  {/* <QuantityPicker smooth min="1" width='8rem'/> */}
                   <Box>
                     <Text fontSize="17">{item.price * item.quantity}.0 $</Text>
                   </Box>

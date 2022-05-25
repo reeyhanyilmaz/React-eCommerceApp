@@ -3,8 +3,8 @@ import styles from "./styles.module.css";
 import { Grid, Box, Text, GridItem } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { Button, VStack, Divider } from "@chakra-ui/react";
-// import WhatsAppWidget from "react-whatsapp-widget";
-// import "react-whatsapp-widget/dist/index.css";
+import WhatsAppWidget from "react-whatsapp-widget";
+import "react-whatsapp-widget/dist/index.css";
 import { IconButton } from "@chakra-ui/react";
 import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 
@@ -117,14 +117,14 @@ function Footer() {
           </GridItem>
         </Grid>
 
-        {/* <WhatsAppWidget
+        <WhatsAppWidget
             phoneNumber="0850 000 00 00"
             message="Merhaba! ChemDev ailesi olarak size nasıl yardımcı olabiliriz?"
             sendButton="Gönder"
             marginBottom="30"
             companyName="ChemDev Destek"
             textReplyTime="Bir gün içinde yanıt verilir"
-          /> */}
+          />
 
         <Divider mt="6" />
 

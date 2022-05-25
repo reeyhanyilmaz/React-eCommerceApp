@@ -96,9 +96,18 @@ function Home() {
               alt="carouselImage"
             />
           </div>
+
           <div>
             <img
-              src="https://microbenotes.com/wp-content/uploads/2020/05/Instruments-used-in-Microbiology-Lab-with-Principle-and-Uses.jpeg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXjKaxu2Ha1cfkXx2-nrnnd2wQL3fYVCl7w&usqp=CAU"
+              alt="carouselImage"
+            />
+          </div>
+
+          
+          <div>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV01Nskpen2mDWW_TI60EBpxTBUkAtvQircA&usqp=CAU"
               alt="carouselImage"
             />
           </div>
@@ -117,12 +126,6 @@ function Home() {
           <div>
             <img
               src="https://www.kocar.com.tr/uploads/slider/images/000/000/049/medium"
-              alt="carouselImage"
-            />
-          </div>
-          <div>
-            <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/000/419/993/small/ry2k_k4r5_180620.jpg"
               alt="carouselImage"
             />
           </div>
@@ -163,7 +166,7 @@ function Home() {
           >
             EN ÇOK <br /> SATILANLAR
             <br /> <br />
-            <Button backgroundColor="#84A59D" color="white">
+            <Button backgroundColor="#84A59D" color="white" borderRadius="50px">
               Keşfet
             </Button>
           </Text>
@@ -172,12 +175,12 @@ function Home() {
 
       <Box mt="20" className={styles.ozelFiyatlarBox}>
         <Text fontSize="2xl" className={styles.ozelFiyatlar}>
-          <Button color="#c0b9dd" size="lg">
+          <Button color="#c0b9dd" size="lg" borderRadius="50px">
             ÖZEL FİYATLAR
           </Button>
         </Text>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIEGIb181IToKaLjnFlxJkPL9dPVyAGbwF5Q&usqp=CAU"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4oQRBxcJnHrA7kTN1KHYJUWr-xTAMTcMZmQ&usqp=CAU"
           alt="ozelfiyatlar"
           className={styles.ozelFiyatlarImage}
         />

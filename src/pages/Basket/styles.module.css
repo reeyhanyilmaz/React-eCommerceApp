@@ -15,3 +15,29 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .basketUl li {
+    width: 100%;
+  }
+
+  .siparisOnaylaBox {
+    width: 100%;
+  }
+
+  .basketUl li {
+    flex-direction: column;
+  }
+
+  .basketUl li img {
+    width: 100%;
+  }
+
+  .basketUl li span {
+    width: 100%;
+  }
+ 
+}
+
+

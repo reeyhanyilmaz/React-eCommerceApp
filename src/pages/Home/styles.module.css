@@ -91,7 +91,7 @@
   width: 40%;
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 767px) {
   .homePageCarousel {
     margin-top: 0;
     width: 300px;

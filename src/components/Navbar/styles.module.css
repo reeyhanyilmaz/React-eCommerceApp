@@ -95,4 +95,8 @@
   .innerContainer {
     max-width: 690px;
   }
+
+  .logo {
+    display: none;
+  }
 }

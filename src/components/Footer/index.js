@@ -72,7 +72,7 @@ function Footer() {
 
           <GridItem padding={"0.5rem"}>
             <Box>
-            <Text fontSize="lg" marginBottom={"3"}>
+              <Text fontSize="lg" marginBottom={"3"}>
                 İletişim
               </Text>
               <IconButton
@@ -83,7 +83,7 @@ function Footer() {
                 icon={<EmailIcon />}
                 width="200px"
                 href="mailto:reyhanylmz1993@gmail.com"
-                marginBottom="8px"             
+                marginBottom="8px"
               />
               <br />
               <IconButton
@@ -92,11 +92,11 @@ function Footer() {
                 aria-label="Call Segun"
                 icon={<PhoneIcon />}
                 width="200px"
-                href="tel:08500000000"               
+                href="tel:08500000000"
               />
             </Box>
           </GridItem>
-       
+
           <GridItem padding={"0.5rem"}>
             <Box>
               <Text fontSize="lg" marginBottom={"3"}>
@@ -126,11 +126,18 @@ function Footer() {
             textReplyTime="Bir gün içinde yanıt verilir"
           /> */}
 
+        <span className={styles.wpIcon}>
+          <a href="https://wa.me/+541/" target="_blank">
+            <img src="/assets/whatsapp.png" className={styles.iconImg}/>
+          </a>
+        </span>
+
         <Divider mt="6" />
 
         <Text textAlign="center" mt="2" fontSize="16" p="20px 0">
           Copyright 2022 © ChemDev | Developer by
-          <a href="https://www.linkedin.com/in/reeyhanyilmaz/" target="_blank">{" "}
+          <a href="https://www.linkedin.com/in/reeyhanyilmaz/" target="_blank">
+            {" "}
             Reyhan Yılmaz
           </a>
         </Text>
